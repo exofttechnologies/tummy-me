@@ -88,7 +88,6 @@ function transformCards() {
         '<span class="menu-card-price-badge">' + price + '</span>' +
         '<img src="' + imgSrc + '" alt="' + imgAlt + '">' +
       '</div>' +
-      '<div class="menu-card-delivery">Free Delivery &nbsp;&bull;&nbsp; Kondotty, Malappuram</div>' +
       '<div class="menu-card-content">' +
         '<div class="menu-card-name-row">' +
           '<h3 class="menu-card-title">' + title + '</h3>' +
