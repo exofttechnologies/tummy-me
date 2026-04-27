@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="description"
+        content="Tummy & Me - Malappuram's Crispiest Fried Chicken Wrapper Experience. Hot juicy fried chicken wrapped in soft bread with signature sauces.">
+    <title>Tummy & Me | Eat Sleep Repeat</title>
+    <link rel="stylesheet" href="styles.css?v=2">
+    <link rel="icon" href="images/logo.png">
+</head>
+
+<body>
+    <!-- LOADER -->
+    <div class="loader" id="loader">
+        <div class="loader-inner"><img src="images/logo.png" alt="Loading">
+            <div class="loader-bar"></div>
+        </div>
+    </div>
+
+    <!-- NAV -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo" onclick="showPage('home')">
+                <img src="images/logo.png" alt="Tummy &amp; Me">
+                <span class="nav-brand-name">Tummy &amp; Me</span>
+            </a>
+            <div class="nav-pill">
+                <ul class="nav-links">
+                    <li><a href="#" onclick="showPage('home')" class="active" data-page="home">Home</a></li>
+                    <li><a href="#" onclick="showPage('menu')" data-page="menu">Menu</a></li>
+                    <li><a href="#" onclick="showPage('contact')" data-page="contact">Contact</a></li>
+                    <li><a href="#" onclick="showPage('locations')" data-page="locations">Location</a></li>
+                    <li><a href="#" onclick="showPage('franchise')" data-page="franchise">Franchise</a></li>
+                </ul>
+                <a href="#" class="nav-contact-btn" onclick="showPage('contact')">Contact</a>
+            </div>
+            <button class="hamburger" id="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <div class="mobile-menu-logo">
+                <img src="images/logo.png" alt="Tummy &amp; Me">
+                <span>Tummy &amp; Me</span>
+            </div>
+            <button class="mobile-close" onclick="toggleMobile()">X</button>
+        </div>
+        <nav class="mobile-nav-list">
+            <a class="mobile-nav-item" href="#" onclick="showPage('menu');toggleMobile()"><span>Menu</span><span class="mobile-nav-chevron">&rsaquo;</span></a>
+            <a class="mobile-nav-item" href="#" onclick="showPage('locations');toggleMobile()"><span>Locations</span><span class="mobile-nav-chevron">&rsaquo;</span></a>
+            <a class="mobile-nav-item" href="#" onclick="showPage('about');toggleMobile()"><span>About</span><span class="mobile-nav-chevron">&rsaquo;</span></a>
+            <a class="mobile-nav-item" href="#" onclick="showPage('franchise');toggleMobile()"><span>Franchise</span><span class="mobile-nav-chevron">&rsaquo;</span></a>
+            <a class="mobile-nav-item" href="#" onclick="showPage('contact');toggleMobile()"><span>Contact</span><span class="mobile-nav-chevron">&rsaquo;</span></a>
+        </nav>
+        <div class="mobile-menu-footer">
+            <button class="mobile-cta-btn" onclick="showPage('menu');toggleMobile()">Order Online</button>
+            <div class="mobile-social-row">
+                <a href="tel:+919633330135">Call</a>
+                <a href="https://instagram.com/tummyandme" target="_blank">Instagram</a>
+            </div>
+            <p class="mobile-location-info">Kondotty, Malappuram - 11:00 AM to 11:30 PM</p>
+        </div>
+    </div>
+
+    <!-- HOME -->
+    <div class="page active" id="page-home">
+        <section class="hero-new">
+            <div class="hero-new-card-outer">
+                <div class="hero-new-card-inner">
+                    <h2 class="hero-bg-text-1">TUMMY</h2>
+                    <h2 class="hero-bg-text-2">&amp; ME</h2>
+                    <div class="panda-glow"></div>
+                    <div class="panda-shadow"></div>
+                    <div class="hero-panda-center"><img src="images/panda hero.png" alt="Panda"></div>
+                    <div class="hero-card-bottom hero-card-left"><div class="title">100%</div><div class="sub">Fresh Chicken</div></div>
+                    <div class="hero-card-bottom hero-card-right"><div class="sub">Farm to</div><div class="title">Table</div></div>
+                    <div class="hero-bottom-notch"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAN FAVORITES -->
+        <section class="menu-section">
+            <div class="container text-center">
+                <span class="section-badge">⭐ Fan Favorites</span>
+                <h2 class="section-title reveal">Taste What Everyone's Talking About</h2>
+                <p class="section-subtitle reveal">Our most-loved crispy creations that keep Malappuram coming back for
+                    more.</p>
+                <div class="menu-grid">
+                    <div class="menu-card reveal">
+    <div class="menu-card-gradient"></div>
+    <div class="menu-card-img-container">
+        <img src="images/signature-wrapper.png" alt="Signature Fried Chicken Wrapper">
+    </div>
+    <div class="menu-card-content">
+        <h2 class="menu-card-brand">Tummy & Me</h2>
+        <h3 class="menu-card-title">Signature Fried Chicken Wrapper</h3>
+        <p class="menu-card-desc">Crispy chicken strips, fresh lettuce, garlic mayo in soft bread.</p>
+        <div class="menu-card-divider"></div>
+        <div class="menu-card-tags">
+            <span>Crispy</span>
+            <span>Fresh</span>
+            <span>Popular</span>
+            <span>+2</span>
+        </div>
+        <div class="menu-card-bottom">
+            <div class="menu-card-stats">
+                <div class="stat-pill">🔥 <span>₹149</span></div>
+                <div class="stat-pill">🛍️ <span>10</span></div>
+            </div>
+            <button class="menu-card-btn" onclick="showPage('menu')">Explore →</button>
+        </div>
+    </div>
+</div>
+                    <div class="menu-card reveal">
+    <div class="menu-card-gradient"></div>
+    <div class="menu-card-img-container">
+        <img src="images/fried shawarma roll.png" alt="Cheesy Fried Chicken Wrapper">
+    </div>
+    <div class="menu-card-content">
+        <h2 class="menu-card-brand">Tummy & Me</h2>
+        <h3 class="menu-card-title">Cheesy Fried Chicken Wrapper</h3>
+        <p class="menu-card-desc">Loaded with melted cheese and our signature spicy sauce.</p>
+        <div class="menu-card-divider"></div>
+        <div class="menu-card-tags">
+            <span>Crispy</span>
+            <span>Fresh</span>
+            <span>Popular</span>
+            <span>+2</span>
+        </div>
+        <div class="menu-card-bottom">
+            <div class="menu-card-stats">
+                <div class="stat-pill">🔥 <span>₹179</span></div>
+                <div class="stat-pill">🛍️ <span>10</span></div>
+            </div>
+            <button class="menu-card-btn" onclick="showPage('menu')">Explore →</button>
+        </div>
+    </div>
+</div>
+                    <div class="menu-card reveal">
+    <div class="menu-card-gradient"></div>
+    <div class="menu-card-img-container">
+        <img src="images/wrapper.png" alt="Combo Meal Deal">
+    </div>
+    <div class="menu-card-content">
+        <h2 class="menu-card-brand">Tummy & Me</h2>
+        <h3 class="menu-card-title">Combo Meal Deal</h3>
+        <p class="menu-card-desc">Wrapper + fries + drink combo for the ultimate feast.</p>
+        <div class="menu-card-divider"></div>
+        <div class="menu-card-tags">
+            <span>Crispy</span>
+            <span>Fresh</span>
+            <span>Popular</span>
+            <span>+2</span>
+        </div>
+        <div class="menu-card-bottom">
+            <div class="menu-card-stats">
+                <div class="stat-pill">🔥 <span>₹249</span></div>
+                <div class="stat-pill">🛍️ <span>10</span></div>
+            </div>
+            <button class="menu-card-btn" onclick="showPage('menu')">Explore →</button>
+        </div>
+    </div>
+</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHY US -->
+        <section style="background:rgba(229,166,35,.04)">
+            <div class="container text-center">
+                <span class="section-badge">💛 Why Tummy & Me</span>
+                <h2 class="section-title reveal">Premium Quality, Bold Flavors</h2>
+                <p class="section-subtitle reveal">Every bite is crafted with love, fresh ingredients, and our secret
+                    spice blend.</p>
+                <div class="why-grid">
+                    <div class="why-card reveal">
+                        <div class="icon">🌶️</div>
+                        <h3>Secret Spice Blend</h3>
+                        <p>Our signature blend of organic spices creates unforgettable flavor in every bite.</p>
+                    </div>
+                    <div class="why-card reveal">
+                        <div class="icon">🍗</div>
+                        <h3>Crispy Chicken</h3>
+                        <p>Perfectly fried, golden crispy chicken that stays crunchy till the last bite.</p>
+                    </div>
+                    <div class="why-card reveal">
+                        <div class="icon">🫓</div>
+                        <h3>Fresh Bread Daily</h3>
+                        <p>Soft, fresh bread made daily for the perfect wrapper experience.</p>
+                    </div>
+                    <div class="why-card reveal">
+                        <div class="icon">🧄</div>
+                        <h3>Signature Sauces</h3>
+                        <p>Our famous garlic mayo and house sauces made in-house daily.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS -->
+        <section>
+            <div class="container text-center">
+                <span class="section-badge">💬 Reviews</span>
+                <h2 class="section-title reveal">What Our Foodies Say</h2>
+                <p class="section-subtitle reveal">Real reviews from real wrapper lovers.</p>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card reveal">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p>"The crispiest chicken wrapper I've ever had! The garlic mayo is absolutely addictive. This
+                            is now my go-to spot!"</p>
+                        <div class="author">— Anwar K.</div>
+                    </div>
+                    <div class="testimonial-card reveal">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p>"Amazing food quality and generous portions. The Cheesy Wrapper is a must-try. Quick service,
+                            friendly staff!"</p>
+                        <div class="author">— Fathima S.</div>
+                    </div>
+                    <div class="testimonial-card reveal">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p>"Finally found a wrapper place that gets it right! Fresh bread, perfectly crispy chicken.
+                            Affordable and delicious."</p>
+                        <div class="author">— Rahul M.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <div class="container">
+                <h2 class="reveal">Ready to Taste the Crunch?</h2>
+                <p class="reveal">Order now and experience Malappuram's crispiest fried chicken wrapper.</p><a href="#"
+                    class="btn-primary reveal" onclick="showPage('menu')">🛒 Order Now</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- MENU PAGE -->
+    <div class="page" id="page-menu">
+        <div class="page-header">
+            <div class="container"><span class="section-badge">📋 Our Menu</span>
+                <h1>Discover Our <span class="highlight">Crispy</span> Creations</h1>
+                <p>Browse our categories and find your next favorite.</p>
+            </div>
+        </div>
+        <section>
+            <div class="container">
+                <div class="menu-tabs" id="menuTabs">
+                    <button class="menu-tab active" onclick="filterMenu('all')">All</button>
+                    <button class="menu-tab" onclick="filterMenu('wrappers')">Signature Wrappers</button>
+                    <button class="menu-tab" onclick="filterMenu('meals')">Fried Chicken Meals</button>
+                    <button class="menu-tab" onclick="filterMenu('fries')">Loaded Fries</button>
+                    <button class="menu-tab" onclick="filterMenu('combos')">Combo Meals</button>
+                    <button class="menu-tab" onclick="filterMenu('sauces')">Sauces & Dips</button>
+                    <button class="menu-tab" onclick="filterMenu('drinks')">Drinks</button>
+                </div>
+                <div class="menu-grid" id="menuGrid">
+                    <div class="menu-card reveal" data-cat="wrappers">
+    <div class="menu-card-gradient"></div>
+    <div class="menu-card-img-container">
+        <img src="images/signature-wrapper.png" alt="Classic Fried Chicken Wrapper">
+    </div>
+    <div class="menu-card-content">
+        <h2 class="menu-card-brand">Tummy & Me</h2>
+        <h3 class="menu-card-title">Classic Fried Chicken Wrapper</h3>
+        <p class="menu-card-desc">Crispy chicken, lettuce, garlic mayo in soft bread.</p>
+        <div class="menu-card-divider"></div>
+        <div class="menu-card-tags">
+            <span>Crispy</span>
+            <span>Fresh</span>
+            <span>Popular</span>
+            <span>+2</span>
+        </div>
+        <div class="menu-card-bottom">
+            <div class="menu-card-stats">
+                <div class="stat-pill">🔥 <span>₹129</span></div>
+                <div class="stat-pill">🛍️ <span>10</span></div>
+            </div>
+            <button class="menu-card-btn" onclick="showPage('menu')">Explore →</button>
+        </div>
+    </div>
+</div>
+                    <div class="menu-card reveal" data-cat="wrappers">
+    <div class="menu-card-gradient"></div>
+    <div class="menu-card-img-container">
+        <img src="images/fried shawarma roll.png" alt="Cheesy Fried Chicken Wrapper">
+    </div>
+    <div class="menu-card-content">
+        <h2 class="menu-card-brand">Tummy & Me</h2>
+        <h3 class="menu-card-title">Cheesy Fried Chicken Wrapper</h3>
+        <p class="menu-card-desc">Loaded with melted cheese and signature spicy sauce.</p>
+        <div class="menu-card-divider"></div>
+        <div class="menu-card-tags">
+            <span>Crispy</span>
+            <span>Fresh</span>
+            <span>Popular</span>
+            <span>+2</span>
+        </div>
+        <div class="menu-card-bottom">
+            <div class="menu-card-stats">
+                <div class="stat-pill">🔥 <span>₹159</span></div>
+                <div class="stat-pill">🛍️ <span>10</span></div>
+            </div>
+            <button class="menu-card-btn" onclick="showPage('menu')">Explore →</button>
+        </div>
+    </div>
+</div>
+                    <div class="menu-card reveal" data-cat="wrappers">
+    <div class="menu-card-gradient"></div>
+    <div class="menu-card-img-container">
+        <img src="images/wrapper image.png" alt="Spicy Fried Chicken Wrapper">
+    </div>
+    <div class="menu-card-content">
+        <h2 class="menu-card-brand">Tummy & Me</h2>
+        <h3 class="menu-card-title">Spicy Fried Chicken Wrapper</h3>
+        <p class="menu-card-desc">Extra spicy with red chili flakes and hot sauce.</p>
+        <div class="menu-card-divider"></div>
+        <div class="menu-card-tags">
+            <span>Crispy</span>
+            <span>Fresh</span>
+            <span>Popular</span>
+            <span>+2</span>
+        </div>
+        <div class="menu-card-bottom">
+            <div class="menu-card-stats">
+                <div class="stat-pill">🔥 <span>₹149</span></div>
+                <div class="stat-pill">🛍️ <span>10</span></div>
+            </div>
+            <button class="menu-card-btn" onclick="showPage('menu')">Explore →</button>
+        </div>
+    </div>
+</div>
+                    <div class="menu-card reveal" data-cat="wrappers">
+    <div class="menu-card-gradient"></div>
+    <div class="menu-card-img-container">
+        <img src="images/wrapper image.png" alt="Double Chicken Wrapper">
+    </div>
+    <div class="menu-card-content">
+        <h2 class="menu-card-brand">Tummy & Me</h2>
+        <h3 class="menu-card-title">Double Chicken Wrapper</h3>
+        <p class="menu-card-desc">Double the chicken, double the crunch, double the love.</p>
+        <div class="menu-card-divider"></div>
+        <div class="menu-card-tags">
+            <span>Crispy</span>
+            <span>Fresh</span>
+            <span>Popular</span>
+            <span>+2</span>
+        </div>
+        <div class="menu-card-bottom">
+            <div class="menu-card-stats">
+                <div class="stat-pill">🔥 <span>₹199</span></div>
+                <div class="stat-pill">🛍️ <span>10</span></div>
+            </div>
+            <button class="menu-card-btn" onclick="showPage('menu')">Explore →</button>
+        </div>
+    </div>
+</div>
+                    <div class="menu-card reveal" data-cat="meals">
+    <div class="menu-card-gradient"></div>
+    <div class="menu-card-img-container">
+        <img src="images/wrapper image.png" alt="Crispy Chicken Meal (3pc)">
+    </div>
+    <div class="menu-card-content">
+        <h2 class="menu-card-brand">Tummy & Me</h2>
+        <h3 class="menu-card-title">Crispy Chicken Meal (3pc)</h3>
+        <p class="menu-card-desc">3 pieces of golden fried chicken with fries & coleslaw.</p>
+        <div class="menu-card-divider"></div>
+        <div class="menu-card-tags">
+            <span>Crispy</span>
+            <span>Fresh</span>
+            <span>Popular</span>
+            <span>+2</span>
+        </div>
+        <div class="menu-card-bottom">
+            <div class="menu-card-stats">
+                <div class="stat-pill">🔥 <span>₹279</span></div>
+                <div class="stat-pill">🛍️ <span>10</span></div>
+            </div>
+            <button class="menu-card-btn" onclick="showPage('menu')">Explore →</button>
+        </div>
+    </div>
+</div>
+                    <div class="menu-card reveal" data-cat="meals">
+    <div class="menu-card-gradient"></div>
+    <div class="menu-card-img-container">
+        <img src="images/wrapper image.png" alt="Crispy Chicken Meal (5pc)">
+    </div>
+    <div class="menu-card-content">
+        <h2 class="menu-card-brand">Tummy & Me</h2>
+        <h3 class="menu-card-title">Crispy Chicken Meal (5pc)</h3>
+        <p class="menu-card-desc">5 pieces of golden fried chicken with fries & dip.</p>
+        <div class="menu-card-divider"></div>
+        <div class="menu-card-tags">
+            <span>Crispy</span>
+            <span>Fresh</span>
+            <span>Popular</span>
+            <span>+2</span>
+        </div>
+        <div class="menu-card-bottom">
+            <div class="menu-card-stats">
+                <div class="stat-pill">🔥 <span>₹449</span></div>
+                <div class="stat-pill">🛍️ <span>10</span></div>
+            </div>
+            <button class="menu-card-btn" onclick="showPage('menu')">Explore →</button>
+        </div>
+    </div>
+</div>
+                    <div class="menu-card reveal" data-cat="fries">
+    <div class="menu-card-gradient"></div>
+    <div class="menu-card-img-container">
+        <img src="images/loaded-fries.png" alt="Loaded Chicken Fries">
+    </div>
+    <div class="menu-card-content">
+        <h2 class="menu-card-brand">Tummy & Me</h2>
+        <h3 class="menu-card-title">Loaded Chicken Fries</h3>
+        <p class="menu-card-desc">Crispy fries topped with chicken, cheese & sauces.</p>
+        <div class="menu-card-divider"></div>
+        <div class="menu-card-tags">
+            <span>Crispy</span>
+            <span>Fresh</span>
+            <span>Popular</span>
+            <span>+2</span>
+        </div>
+        <div class="menu-card-bottom">
+            <div class="menu-card-stats">
+                <div class="stat-pill">🔥 <span>₹179</span></div>
+                <div class="stat-pill">🛍️ <span>10</span></div>
+            </div>
+            <button class="menu-card-btn" onclick="showPage('menu')">Explore →</button>
+        </div>
+    </div>
+</div>
+                    <div class="menu-card reveal" data-cat="fries">
+    <div class="menu-card-gradient"></div>
+    <div class="menu-card-img-container">
+        <img src="images/wrapper image.png" alt="Peri Peri Fries">
+    </div>
+    <div class="menu-card-content">
+        <h2 class="menu-card-brand">Tummy & Me</h2>
+        <h3 class="menu-card-title">Peri Peri Fries</h3>
+        <p class="menu-card-desc">Classic fries with our signature peri peri seasoning.</p>
+        <div class="menu-card-divider"></div>
+        <div class="menu-card-tags">
+            <span>Crispy</span>
+            <span>Fresh</span>
+            <span>Popular</span>
+            <span>+2</span>
+        </div>
+        <div class="menu-card-bottom">
+            <div class="menu-card-stats">
+                <div class="stat-pill">🔥 <span>₹99</span></div>
+                <div class="stat-pill">🛍️ <span>10</span></div>
+            </div>
+            <button class="menu-card-btn" onclick="showPage('menu')">Explore →</button>
+        </div>
+    </div>
+</div>
+                    <div class="menu-card reveal" data-cat="combos">
+    <div class="menu-card-gradient"></div>
+    <div class="menu-card-img-container">
+        <img src="images/wrapper image.png" alt="Wrapper Combo">
+    </div>
+    <div class="menu-card-content">
+        <h2 class="menu-card-brand">Tummy & Me</h2>
+        <h3 class="menu-card-title">Wrapper Combo</h3>
+        <p class="menu-card-desc">Wrapper + fries + drink. Best value for money.</p>
+        <div class="menu-card-divider"></div>
+        <div class="menu-card-tags">
+            <span>Crispy</span>
+            <span>Fresh</span>
+            <span>Popular</span>
+            <span>+2</span>
+        </div>
+        <div class="menu-card-bottom">
+            <div class="menu-card-stats">
+                <div class="stat-pill">🔥 <span>₹249</span></div>
+                <div class="stat-pill">🛍️ <span>10</span></div>
+            </div>
+            <button class="menu-card-btn" onclick="showPage('menu')">Explore →</button>
+        </div>
+    </div>
+</div>
+                    <div class="menu-card reveal" data-cat="combos">
+    <div class="menu-card-gradient"></div>
+    <div class="menu-card-img-container">
+        <img src="images/wrapper.png" alt="Family Feast">
+    </div>
+    <div class="menu-card-content">
+        <h2 class="menu-card-brand">Tummy & Me</h2>
+        <h3 class="menu-card-title">Family Feast</h3>
+        <p class="menu-card-desc">4 wrappers + 2 fries + 4 drinks. Feed the whole family.</p>
+        <div class="menu-card-divider"></div>
+        <div class="menu-card-tags">
+            <span>Crispy</span>
+            <span>Fresh</span>
+            <span>Popular</span>
+            <span>+2</span>
+        </div>
+        <div class="menu-card-bottom">
+            <div class="menu-card-stats">
+                <div class="stat-pill">🔥 <span>₹899</span></div>
+                <div class="stat-pill">🛍️ <span>10</span></div>
+            </div>
+            <button class="menu-card-btn" onclick="showPage('menu')">Explore →</button>
+        </div>
+    </div>
+</div>
+                    <div class="menu-card reveal" data-cat="sauces">
+    <div class="menu-card-gradient"></div>
+    <div class="menu-card-img-container">
+        <img src="images/wrapper image.png" alt="Signature Garlic Mayo">
+    </div>
+    <div class="menu-card-content">
+        <h2 class="menu-card-brand">Tummy & Me</h2>
+        <h3 class="menu-card-title">Signature Garlic Mayo</h3>
+        <p class="menu-card-desc">Our creamy, garlicky house-made mayo dip.</p>
+        <div class="menu-card-divider"></div>
+        <div class="menu-card-tags">
+            <span>Crispy</span>
+            <span>Fresh</span>
+            <span>Popular</span>
+            <span>+2</span>
+        </div>
+        <div class="menu-card-bottom">
+            <div class="menu-card-stats">
+                <div class="stat-pill">🔥 <span>₹29</span></div>
+                <div class="stat-pill">🛍️ <span>10</span></div>
+            </div>
+            <button class="menu-card-btn" onclick="showPage('menu')">Explore →</button>
+        </div>
+    </div>
+</div>
+                    <div class="menu-card reveal" data-cat="drinks">
+    <div class="menu-card-gradient"></div>
+    <div class="menu-card-img-container">
+        <img src="images/wrapper image.png" alt="Fresh Lemonade">
+    </div>
+    <div class="menu-card-content">
+        <h2 class="menu-card-brand">Tummy & Me</h2>
+        <h3 class="menu-card-title">Fresh Lemonade</h3>
+        <p class="menu-card-desc">Ice-cold fresh lemon with a hint of mint.</p>
+        <div class="menu-card-divider"></div>
+        <div class="menu-card-tags">
+            <span>Crispy</span>
+            <span>Fresh</span>
+            <span>Popular</span>
+            <span>+2</span>
+        </div>
+        <div class="menu-card-bottom">
+            <div class="menu-card-stats">
+                <div class="stat-pill">🔥 <span>₹59</span></div>
+                <div class="stat-pill">🛍️ <span>10</span></div>
+            </div>
+            <button class="menu-card-btn" onclick="showPage('menu')">Explore →</button>
+        </div>
+    </div>
+</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- LOCATIONS PAGE -->
+    <div class="page" id="page-locations">
+        <div class="page-header">
+            <div class="container"><span class="section-badge">📍 Find Us</span>
+                <h1>Our <span class="highlight">Locations</span></h1>
+                <p>Visit us at our branches across Malappuram.</p>
+            </div>
+        </div>
+        <section>
+            <div class="container">
+                <div class="loc-grid">
+                    <div class="loc-card reveal">
+                        <div class="loc-card-header">
+                            <div class="glow-pin"></div>
+                            <h3>Kondotty</h3><span class="status">✅ Now Open</span>
+                        </div>
+                        <div class="loc-card-body">
+                            <div class="loc-info"><span class="icon">📍</span><span>Main Road, Kondotty, Malappuram,
+                                    Kerala</span></div>
+                            <div class="loc-info"><span class="icon">🕐</span><span>11:00 AM - 11:30 PM (Daily)</span>
+                            </div>
+                            <div class="loc-info"><span class="icon">📞</span><span>+91 96333 30135</span></div>
+                            <div class="loc-btns"><a href="https://maps.google.com/?q=Kondotty+Malappuram"
+                                    class="btn-sm btn-directions">Get Directions</a><a href="tel:+919633330135"
+                                    class="btn-sm btn-call">Call</a></div>
+                        </div>
+                    </div>
+                    <div class="loc-card reveal">
+                        <div class="loc-card-header" style="background:linear-gradient(135deg,#555,#333)">
+                            <div class="glow-pin coming"></div>
+                            <h3>Vengara</h3><span class="status">🔜 Opening Soon</span>
+                        </div>
+                        <div class="loc-card-body">
+                            <div class="loc-info"><span class="icon">📍</span><span>Vengara, Malappuram, Kerala</span>
+                            </div>
+                            <div class="loc-info"><span class="icon">📢</span><span>Stay tuned for opening date!</span>
+                            </div>
+                            <div class="loc-btns"><a href="#" class="btn-sm btn-call" onclick="showPage('contact')">Get
+                                    Notified</a></div>
+                        </div>
+                    </div>
+                    <div class="loc-card reveal">
+                        <div class="loc-card-header" style="background:linear-gradient(135deg,#555,#333)">
+                            <div class="glow-pin coming"></div>
+                            <h3>More Branches</h3><span class="status">🔜 Expanding Across Malappuram</span>
+                        </div>
+                        <div class="loc-card-body">
+                            <div class="loc-info"><span class="icon">🚀</span><span>We're expanding rapidly across
+                                    Malappuram district. More locations coming soon!</span></div>
+                            <div class="loc-btns"><a href="#" class="btn-sm btn-directions"
+                                    onclick="showPage('franchise')">Franchise Enquiry</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ABOUT PAGE -->
+    <div class="page" id="page-about">
+        <div class="page-header">
+            <div class="container"><span class="section-badge">🏠 Our Story</span>
+                <h1>About <span class="highlight">Tummy & Me</span></h1>
+                <p>We started with one mission — bring the crunchiest fried chicken wrapper experience to Malappuram.
+                </p>
+            </div>
+        </div>
+        <section>
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-image reveal"><img src="images/hero-wrapper.png" alt="Our Story"></div>
+                    <div class="about-content reveal">
+                        <h2>Crafted with Love, Served with Pride</h2>
+                        <p>From our humble beginnings in Kondotty, Tummy & Me has grown into Malappuram's favorite fried
+                            chicken wrapper destination. Every wrapper is made with the freshest ingredients, our secret
+                            spice blend, and a whole lot of love. We believe great food brings people together — and
+                            that's exactly what we do, one crispy bite at a time.</p>
+                        <div class="about-features">
+                            <div class="about-feature"><span class="icon">🌿</span><span>Fresh Ingredients</span></div>
+                            <div class="about-feature"><span class="icon">🌶️</span><span>Secret Sauces</span></div>
+                            <div class="about-feature"><span class="icon">👨‍🍳</span><span>Daily Preparation</span>
+                            </div>
+                            <div class="about-feature"><span class="icon">⚡</span><span>Fast Service</span></div>
+                            <div class="about-feature"><span class="icon">⭐</span><span>Premium Taste</span></div>
+                            <div class="about-feature"><span class="icon">❤️</span><span>Made with Love</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- FRANCHISE PAGE -->
+    <div class="page" id="page-franchise">
+        <div class="page-header">
+            <div class="container"><span class="section-badge">🤝 Franchise</span>
+                <h1>Own a <span class="highlight">Fast Growing</span> Fried Chicken Brand</h1>
+                <p>Join the Tummy & Me family and bring Kerala's crispiest wrappers to your city.</p>
+            </div>
+        </div>
+        <section>
+            <div class="container">
+                <div class="franchise-hero reveal">
+                    <h2>Be Part of Kerala's Fastest Growing Food Brand</h2>
+                    <p>With strong demand, easy operations, and complete brand support — owning a Tummy & Me franchise
+                        is a delicious opportunity.</p>
+                </div>
+                <div class="franchise-grid">
+                    <div class="benefit-cards">
+                        <div class="benefit-card reveal">
+                            <div class="icon">📈</div>
+                            <div>
+                                <h3>Strong Demand</h3>
+                                <p>Kerala's food market is booming. Fried chicken wrappers are the hottest trend.</p>
+                            </div>
+                        </div>
+                        <div class="benefit-card reveal">
+                            <div class="icon">⚙️</div>
+                            <div>
+                                <h3>Easy Operations</h3>
+                                <p>Streamlined processes and training make running your outlet simple.</p>
+                            </div>
+                        </div>
+                        <div class="benefit-card reveal">
+                            <div class="icon">🛡️</div>
+                            <div>
+                                <h3>Brand Support</h3>
+                                <p>Complete branding, marketing materials, and operational guidance.</p>
+                            </div>
+                        </div>
+                        <div class="benefit-card reveal">
+                            <div class="icon">📣</div>
+                            <div>
+                                <h3>Marketing Support</h3>
+                                <p>Digital marketing, social media, and local campaign support included.</p>
+                            </div>
+                        </div>
+                        <div class="benefit-card reveal">
+                            <div class="icon">🚀</div>
+                            <div>
+                                <h3>Expansion Across Kerala</h3>
+                                <p>Be part of our aggressive expansion plan across the state.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="franchise-form reveal">
+                        <h3>Franchise Inquiry</h3>
+                        <p>Fill in your details and we'll get back to you within 24 hours.</p>
+                        <form onsubmit="handleFranchise(event)">
+                            <div class="form-group"><label>Full Name</label><input type="text"
+                                    placeholder="Your full name" required></div>
+                            <div class="form-group"><label>Phone Number</label><input type="tel"
+                                    placeholder="+91 XXXXX XXXXX" required></div>
+                            <div class="form-group"><label>City</label><input type="text" placeholder="Your city"
+                                    required></div>
+                            <div class="form-group"><label>Investment Range</label><select required>
+                                    <option value="">Select range</option>
+                                    <option>₹5 - ₹10 Lakhs</option>
+                                    <option>₹10 - ₹20 Lakhs</option>
+                                    <option>₹20 - ₹50 Lakhs</option>
+                                    <option>₹50 Lakhs+</option>
+                                </select></div>
+                            <button type="submit" class="btn-primary" style="width:100%;justify-content:center">Submit
+                                Inquiry →</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- CONTACT PAGE -->
+    <div class="page" id="page-contact">
+        <div class="page-header">
+            <div class="container"><span class="section-badge">📞 Get in Touch</span>
+                <h1>Contact <span class="highlight">Us</span></h1>
+                <p>Have a question or feedback? We'd love to hear from you.</p>
+            </div>
+        </div>
+        <section>
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <div class="contact-card reveal">
+                            <div class="icon">📞</div>
+                            <div>
+                                <h4>Phone</h4><a href="tel:+919633330135">+91 96333 30135</a>
+                            </div>
+                        </div>
+                        <div class="contact-card reveal">
+                            <div class="icon">💬</div>
+                            <div>
+                                <h4>WhatsApp</h4><a href="https://wa.me/919633330135" target="_blank">Chat with us on
+                                    WhatsApp</a>
+                            </div>
+                        </div>
+                        <div class="contact-card reveal">
+                            <div class="icon">📸</div>
+                            <div>
+                                <h4>Instagram</h4><a href="https://instagram.com/tummyandme"
+                                    target="_blank">@tummyandme</a>
+                            </div>
+                        </div>
+                        <div class="contact-card reveal">
+                            <div class="icon">📧</div>
+                            <div>
+                                <h4>Email</h4><a href="mailto:hello@tummyandme.in">hello@tummyandme.in</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form reveal">
+                        <h3>Send us a Message</h3>
+                        <form onsubmit="handleContact(event)">
+                            <div class="form-group"><label>Name</label><input type="text" placeholder="Your name"
+                                    required></div>
+                            <div class="form-group"><label>Email</label><input type="email" placeholder="you@email.com"
+                                    required></div>
+                            <div class="form-group"><label>Phone</label><input type="tel" placeholder="+91 XXXXX XXXXX">
+                            </div>
+                            <div class="form-group"><label>Message</label><textarea placeholder="Your message..."
+                                    required></textarea></div>
+                            <button type="submit" class="btn-primary" style="width:100%;justify-content:center">Send
+                                Message →</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand"><img src="images/logo.png" alt="Tummy & Me">
+                    <p>Malappuram's crispiest fried chicken wrapper experience. Eat. Sleep. Repeat.</p>
+                    <div class="footer-social"><a href="https://instagram.com/tummyandme" target="_blank">📸</a><a
+                            href="https://wa.me/919633330135" target="_blank">💬</a><a href="tel:+919633330135">📞</a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="#" onclick="showPage('home')">Home</a></li>
+                        <li><a href="#" onclick="showPage('menu')">Menu</a></li>
+                        <li><a href="#" onclick="showPage('locations')">Locations</a></li>
+                        <li><a href="#" onclick="showPage('about')">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>More</h4>
+                    <ul>
+                        <li><a href="#" onclick="showPage('franchise')">Franchise</a></li>
+                        <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+                        <li><a href="https://wa.me/919633330135">WhatsApp</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Hours</h4>
+                    <ul>
+                        <li><a>Mon - Sun</a></li>
+                        <li><a>11:00 AM - 11:30 PM</a></li>
+                        <li><a style="margin-top:12px;font-weight:600;color:var(--gold)">📍 Kondotty, Malappuram</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Tummy & Me. All rights reserved.</p>
+                <p>Eat Sleep Repeat 🍗</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js?v=3"></script>
+</body>
+
+</html>
