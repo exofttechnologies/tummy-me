@@ -95,7 +95,7 @@ function transformCards() {
       '<div class="menu-card-content">' +
         '<div class="menu-card-name-row">' +
           '<h3 class="menu-card-title">' + title + '</h3>' +
-          '<button class="menu-card-order-link" onclick="showPage(\'menu\')">Order Now &#8599;</button>' +
+          '<button class="menu-card-order-link" onclick="showPage(\'menu\')">Order Now</button>' +
         '</div>' +
         '<div class="menu-card-tags">' +
           tags.map(t => '<span>' + t + '</span>').join('') +
@@ -114,7 +114,26 @@ function transformCards() {
   });
   
   // Init carousel
-  setTimeout(updateCarousel, 100);
+  setTimeout(() => {
+    updateCarousel();
+    
+    // Add arrows if not present
+    if (!document.querySelector('.carousel-arrows')) {
+        const arrowHtml = '<div class="carousel-arrows mobile-only"><button id="btnPrev">&#8592;</button><button id="btnNext">&#8594;</button></div>';
+        document.querySelector('.menu-grid').insertAdjacentHTML('afterend', arrowHtml);
+        
+        document.getElementById('btnPrev').addEventListener('click', () => {
+            activeIndex = Math.max(0, activeIndex - 1);
+            updateCarousel();
+        });
+        
+        document.getElementById('btnNext').addEventListener('click', () => {
+            const maxIdx = Array.from(document.querySelectorAll('.menu-card')).filter(c => c.style.display !== 'none').length - 1;
+            activeIndex = Math.min(maxIdx, activeIndex + 1);
+            updateCarousel();
+        });
+    }
+  }, 100);
 }
 
 let activeIndex = 1;
@@ -176,37 +195,8 @@ function initHeroGSAP() {
     { scale: 1, opacity: 1, y: 0, duration: 1.4, delay: 0.5, ease: "power4.out" }
   );
 
-  // STEP 3 - Parallax scroll effect (panda moves down when scrolling down)
-  if (typeof ScrollTrigger !== 'undefined') {
-    gsap.to(".hero-panda-center", {
-      y: 180, // Moves down 180px as you scroll
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".hero-new",
-        start: "top top",
-        end: "bottom top",
-        scrub: 0.5, // Smooth scrubbing
-      }
-    });
-  }
-
-  // Interactive touch/hover effect
-  const panda = document.querySelector('.hero-panda-center');
-  if (panda) {
-    panda.addEventListener('mouseenter', () => {
-      gsap.to(panda, { scale: 1.02, duration: 0.3, ease: "power2.out", overwrite: "auto" });
-    });
-    panda.addEventListener('mouseleave', () => {
-      gsap.to(panda, { scale: 1, duration: 0.5, ease: "power2.out", overwrite: "auto" });
-    });
-    panda.addEventListener('touchstart', () => {
-      gsap.to(panda, { scale: 1.02, duration: 0.3, ease: "power2.out", overwrite: "auto" });
-    });
-    panda.addEventListener('touchend', () => {
-      gsap.to(panda, { scale: 1, duration: 0.5, ease: "power2.out", overwrite: "auto" });
-    });
-  }
-
+  // Removed panda parallax scroll and hover animations as requested
+  
   // Glow fade in
   gsap.fromTo(".panda-glow", 
     { opacity: 0, scale: 0.5 },
