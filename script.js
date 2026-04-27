@@ -128,10 +128,10 @@ function initHeroGSAP() {
     { scale: 1, opacity: 1, y: 0, duration: 1.4, delay: 0.9, ease: "power4.out" }
   );
 
-  // STEP 3 - Parallax scroll effect (panda moves up when scrolling down)
+  // STEP 3 - Parallax scroll effect (panda moves down when scrolling down)
   if (typeof ScrollTrigger !== 'undefined') {
     gsap.to(".hero-panda-center", {
-      y: -150, // Moves up 150px as you scroll
+      y: 180, // Moves down 180px as you scroll
       ease: "none",
       scrollTrigger: {
         trigger: ".hero-new",
