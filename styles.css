@@ -12,6 +12,26 @@ a{text-decoration:none;color:inherit}
 /* ═══ NAVBAR ═══ */
 .navbar{position:fixed;top:32px;left:24px;right:24px;z-index:1000;padding:16px 32px;max-width:1400px;margin:0 auto;transition:all 0.3s cubic-bezier(0.4,0,0.2,1)}
 .navbar.scrolled{top:16px;}
+.navbar.scrolled .nav-pill,
+.navbar.scrolled .nav-logo {
+    display: none !important;
+}
+.navbar.scrolled .nav-inner {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+    pointer-events: none;
+    justify-content: flex-end;
+}
+.navbar.scrolled .hamburger {
+    display: flex !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    pointer-events: auto;
+}
+.navbar.scrolled .hamburger span {
+    background: var(--red);
+}
 .nav-inner{display:flex;align-items:center;justify-content:center;position:relative;max-width:1280px;margin:0 auto;gap:20px}
 .nav-logo{display:flex;align-items:center;flex-shrink:0;position:absolute;left:0}
 .nav-logo img{height:72px;width:72px;object-fit:contain;filter:drop-shadow(0 2px 8px rgba(0,0,0,.15))}
@@ -36,7 +56,7 @@ a{text-decoration:none;color:inherit}
 /* ═══ KEF-STYLE MOBILE MENU ═══ */
 .mobile-menu{
   display:none;position:fixed;top:0;left:0;right:0;bottom:0;
-  background:#F5F0E8;z-index:1001;flex-direction:column;
+  background:rgba(245, 240, 232, 0.85);backdrop-filter:blur(24px);z-index:1001;flex-direction:column;
   opacity:0;pointer-events:none;
   transform:translateX(100%);
   transition:opacity 0.35s ease, transform 0.35s cubic-bezier(.4,0,.2,1);
@@ -300,34 +320,64 @@ section{padding:100px 0}
 
 
 .menu-section {
-  background: linear-gradient(180deg, #f8f8f8 0%, #ffffff 40%, #f6f6f6 100%);
+  background: #0b0b0b;
   padding: 70px 18px;
+}
+.menu-section .section-title,
+.menu-section .section-subtitle,
+.menu-section .section-badge {
+  color: #fff;
+}
+.menu-section .section-subtitle {
+  opacity: 0.7;
 }
 
 /* Menu Cards */
 .menu-tabs{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-bottom:48px}
 .menu-tab{padding:10px 24px;border-radius:50px;border:2px solid #ddd;background:transparent;cursor:pointer;font-weight:600;font-size:.9rem;transition:var(--transition);font-family:'Inter',sans-serif}
 .menu-tab.active,.menu-tab:hover{background:linear-gradient(135deg,var(--gold),var(--orange));color:#fff;border-color:var(--gold)}
-.menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:32px}
+.menu-grid {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    overflow: hidden;
+}
 
 /* ═══ CLEAN FOOD CARD (Reference Image Style) ═══ */
 .menu-card {
-  position: relative;
-  width: 100%;
-  max-width: 320px;
-  margin: auto;
-  border-radius: 22px;
-  border: none;
-  overflow: hidden;
-  background: #fff;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.10), 0 1px 4px rgba(0,0,0,0.06);
-  transition: transform 0.35s cubic-bezier(.4,0,.2,1), box-shadow 0.35s ease;
-  cursor: pointer;
+    position: absolute;
+    width: 320px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), 
+                filter 0.6s cubic-bezier(0.25, 1, 0.5, 1), 
+                opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform, filter, opacity;
 }
 
-.menu-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.16);
+.menu-card-content {
+    padding: 16px 18px 18px;
+    background: transparent;
+}
+.menu-card-title {
+    color: #fff;
+}
+.menu-card-order-link {
+    color: #fff;
+    border-bottom: 2px solid #fff;
+}
+.menu-card-tags span {
+    color: #ddd;
+    border-color: rgba(255,255,255,0.2);
 }
 
 /* Image area - colored background */
@@ -361,15 +411,10 @@ section{padding:100px 0}
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s cubic-bezier(.4,0,.2,1);
   position: absolute;
   top: 0;
   left: 0;
   z-index: 2;
-}
-
-.menu-card:hover .menu-card-img-area img {
-  transform: scale(1.06);
 }
 
 /* Delivery banner */
@@ -383,11 +428,7 @@ section{padding:100px 0}
   letter-spacing: 0.2px;
 }
 
-/* White content area */
-.menu-card-content {
-  padding: 16px 18px 18px;
-  background: #fff;
-}
+/* Removed duplicate menu-card-content */
 
 /* Name row */
 .menu-card-name-row {
@@ -402,7 +443,7 @@ section{padding:100px 0}
   font-family: 'Poppins', sans-serif;
   font-size: 20px;
   font-weight: 700;
-  color: #111;
+  color: #fff;
   line-height: 1.2;
   margin: 0;
   flex: 1;
@@ -411,16 +452,16 @@ section{padding:100px 0}
 .menu-card-order-link {
   font-size: 13px;
   font-weight: 600;
-  color: #111;
-  text-decoration: underline;
+  color: #fff;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #fff;
   text-underline-offset: 3px;
   white-space: nowrap;
   flex-shrink: 0;
   padding-top: 4px;
   cursor: pointer;
   transition: color 0.2s;
-  border: none;
-  background: none;
   font-family: 'Inter', sans-serif;
 }
 .menu-card-order-link:hover { color: var(--red); }
@@ -433,13 +474,12 @@ section{padding:100px 0}
 }
 
 .menu-card-tags span {
-  padding: 5px 12px;
-  border-radius: 9999px;
-  font-size: 12px;
-  background: #fff;
-  border: 1px solid #ddd;
-  color: #555;
-  font-weight: 400;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 4px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  font-weight: 500;
   font-family: 'Inter', sans-serif;
 }
 

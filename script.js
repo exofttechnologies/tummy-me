@@ -41,6 +41,10 @@ function filterMenu(cat) {
     card.style.display = show ? '' : 'none';
     if (show) { card.classList.remove('visible'); setTimeout(() => card.classList.add('visible'), 50); }
   });
+  
+  // Reset carousel to first visible item
+  activeIndex = 0;
+  updateCarousel();
 }
 
 // Form handlers
@@ -97,7 +101,47 @@ function transformCards() {
           tags.map(t => '<span>' + t + '</span>').join('') +
         '</div>' +
       '</div>';
+      
+    // Carousel click listener
+    card.addEventListener('click', () => {
+        const visibleCards = Array.from(document.querySelectorAll('.menu-card')).filter(c => c.style.display !== 'none');
+        const idx = visibleCards.indexOf(card);
+        if(idx !== -1 && activeIndex !== idx) {
+            activeIndex = idx;
+            updateCarousel();
+        }
+    });
   });
+  
+  // Init carousel
+  setTimeout(updateCarousel, 100);
+}
+
+let activeIndex = 1;
+function updateCarousel() {
+    const cards = Array.from(document.querySelectorAll('.menu-card')).filter(c => c.style.display !== 'none');
+    if (activeIndex >= cards.length) activeIndex = Math.max(0, cards.length - 1);
+    
+    cards.forEach((card, index) => {
+        const offset = index - activeIndex;
+        
+        if (offset === 0) {
+            // Center / Active Card
+            card.style.transform = `translateX(0) scale(1)`;
+            card.style.filter = `blur(0px)`;
+            card.style.opacity = `1`;
+            card.style.zIndex = `10`;
+        } else {
+            // Inactive Cards (Left or Right)
+            const direction = offset > 0 ? 1 : -1;
+            const distance = 240 * direction + (offset * 20); 
+            
+            card.style.transform = `translateX(${distance}px) scale(0.85)`;
+            card.style.filter = `blur(6px)`;
+            card.style.opacity = `0.7`;
+            card.style.zIndex = `5`;
+        }
+    });
 }
 
 // Init
@@ -116,16 +160,20 @@ function initHeroGSAP() {
     gsap.registerPlugin(ScrollTrigger);
   }
   
-  // STEP 1 - Text enters first
-  gsap.fromTo([".hero-bg-text-1", ".hero-bg-text-2"], 
-    { y: 120, opacity: 0 },
-    { y: 0, opacity: 1, duration: 1.2, stagger: 0.15, ease: "power4.out" }
+  // STEP 1 - Text enters from outside
+  gsap.fromTo(".hero-bg-text-1", 
+    { x: "-100vw", opacity: 0 },
+    { x: 0, opacity: 1, duration: 1.2, ease: "power4.out" }
+  );
+  gsap.fromTo(".hero-bg-text-2", 
+    { x: "100vw", opacity: 0 },
+    { x: 0, opacity: 1, duration: 1.2, ease: "power4.out" }
   );
 
-  // STEP 2 - Panda appears after text
+  // STEP 2 - Panda appears from bottom outside
   gsap.fromTo(".hero-panda-center", 
-    { scale: 0.75, opacity: 0, y: 60 },
-    { scale: 1, opacity: 1, y: 0, duration: 1.4, delay: 0.9, ease: "power4.out" }
+    { scale: 0.75, opacity: 0, y: 400 },
+    { scale: 1, opacity: 1, y: 0, duration: 1.4, delay: 0.5, ease: "power4.out" }
   );
 
   // STEP 3 - Parallax scroll effect (panda moves down when scrolling down)
