@@ -6,12 +6,41 @@ function showPage(page) {
     a.classList.toggle('active', a.dataset.page === page);
   });
   window.scrollTo({ top: 0, behavior: 'smooth' });
+  updateMobileMenuActive(page);
   initReveals();
 }
 
 // Mobile Menu
 function toggleMobile() {
-  document.getElementById('mobileMenu').classList.toggle('open');
+  const menu = document.getElementById('mobileMenu');
+  const overlay = document.getElementById('menuOverlay');
+  const navbar = document.getElementById('navbar');
+  
+  menu.classList.toggle('open');
+  if (menu.classList.contains('open')) {
+    overlay.style.display = 'block';
+    if (window.innerWidth <= 968) {
+        navbar.style.display = 'none';
+    }
+    document.body.style.overflow = 'hidden';
+  } else {
+    overlay.style.display = 'none';
+    navbar.style.display = '';
+    document.body.style.overflow = '';
+  }
+}
+
+// Update active state in floating menu
+function updateMobileMenuActive(page) {
+  document.querySelectorAll('.menu-links li').forEach(li => {
+    const link = li.querySelector('a');
+    const linkPage = link.getAttribute('onclick') || '';
+    if (linkPage.includes("'" + page + "'")) {
+      li.classList.add('active');
+    } else {
+      li.classList.remove('active');
+    }
+  });
 }
 
 // Navbar scroll effect
@@ -39,12 +68,7 @@ function filterMenu(cat) {
   document.querySelectorAll('#menuGrid .menu-card').forEach(card => {
     const show = cat === 'all' || card.dataset.cat === cat;
     card.style.display = show ? '' : 'none';
-    if (show) { card.classList.remove('visible'); setTimeout(() => card.classList.add('visible'), 50); }
   });
-  
-  // Reset carousel to first visible item
-  activeIndex = 0;
-  updateCarousel();
 }
 
 // Form handlers
@@ -60,16 +84,16 @@ function handleContact(e) {
 }
 
 // Card background palette (warm brand tones)
-const cardBgPalette = ['#EFE0D0','#E8D5C4','#DDD0C8','#F0E0CC','#E5D8CB','#EDE0D5','#E0D5CE','#EAD8C8'];
+const cardBgPalette = ['#EFE0D0','#E8D5C4','#DDD0C8','#F0E0CC','#E5D8CB','#EDE0D5','#E0D5CE','#EAD8C8','#F2E8DD','#E6DDD4','#ECDDD0','#EAD5C0'];
 
-// Transform cards to new clean reference-style design
-function transformCards() {
+// Build cards — dark card style (reference design)
+function buildCards() {
   let idx = 0;
   document.querySelectorAll('.menu-card').forEach(card => {
-    const titleEl  = card.querySelector('.menu-card-title');
-    const descEl   = card.querySelector('.menu-card-desc');
-    const imgEl    = card.querySelector('.menu-card-img-container img');
-    const pills    = card.querySelectorAll('.stat-pill span');
+    const titleEl = card.querySelector('.menu-card-title');
+    const descEl  = card.querySelector('.menu-card-desc');
+    const imgEl   = card.querySelector('.menu-card-img-container img');
+    const pills   = card.querySelectorAll('.stat-pill span');
     if (!titleEl || !pills.length) return;
 
     const title  = titleEl.textContent.trim();
@@ -77,95 +101,26 @@ function transformCards() {
     const price  = pills[0].textContent.trim();
     const imgSrc = imgEl ? imgEl.getAttribute('src') : '';
     const imgAlt = imgEl ? imgEl.getAttribute('alt') : title;
-    const bg     = cardBgPalette[idx % cardBgPalette.length];
     idx++;
 
-    const tags = [];
-    card.querySelectorAll('.menu-card-tags span').forEach(t => {
-      const txt = t.textContent.trim();
-      tags.push(txt === 'Popular' ? 'Bestseller' : txt);
-    });
-
-    // Rebuild entire card inner HTML
+    // Rebuild card — dark card design
     card.innerHTML =
-      '<div class="menu-card-img-area" style="background:' + bg + '">' +
-        '<span class="menu-card-price-badge">' + price + '</span>' +
-        '<img src="' + imgSrc + '" alt="' + imgAlt + '">' +
+      '<div class="card-body">' +
+        '<h3 class="card-title">' + title + '</h3>' +
+        (desc ? '<p class="card-desc">' + desc + '</p>' : '') +
+        '<div class="card-dots"><span></span><span></span><span></span></div>' +
       '</div>' +
-      '<div class="menu-card-content">' +
-        '<div class="menu-card-name-row">' +
-          '<h3 class="menu-card-title">' + title + '</h3>' +
-          '<button class="menu-card-order-link" onclick="showPage(\'menu\')">Order Now</button>' +
-        '</div>' +
-        '<div class="menu-card-tags">' +
-          tags.map(t => '<span>' + t + '</span>').join('') +
-        '</div>' +
-      '</div>';
-      
-    // Carousel click listener
-    card.addEventListener('click', () => {
-        const visibleCards = Array.from(document.querySelectorAll('.menu-card')).filter(c => c.style.display !== 'none');
-        const idx = visibleCards.indexOf(card);
-        if(idx !== -1 && activeIndex !== idx) {
-            activeIndex = idx;
-            updateCarousel();
-        }
-    });
+      '<div class="card-img-area">' +
+        '<img src="' + imgSrc + '" alt="' + imgAlt + '">' +
+        '<span class="card-price-badge">' + price + '</span>' +
+      '</div>' +
+      '<a class="card-arrow-link" onclick="showPage(\'menu\')">↗</a>';
   });
-  
-  // Init carousel
-  setTimeout(() => {
-    updateCarousel();
-    
-    // Add arrows if not present
-    if (!document.querySelector('.carousel-arrows')) {
-        const arrowHtml = '<div class="carousel-arrows mobile-only"><button id="btnPrev">&#8592;</button><button id="btnNext">&#8594;</button></div>';
-        document.querySelector('.menu-grid').insertAdjacentHTML('afterend', arrowHtml);
-        
-        document.getElementById('btnPrev').addEventListener('click', () => {
-            activeIndex = Math.max(0, activeIndex - 1);
-            updateCarousel();
-        });
-        
-        document.getElementById('btnNext').addEventListener('click', () => {
-            const maxIdx = Array.from(document.querySelectorAll('.menu-card')).filter(c => c.style.display !== 'none').length - 1;
-            activeIndex = Math.min(maxIdx, activeIndex + 1);
-            updateCarousel();
-        });
-    }
-  }, 100);
-}
-
-let activeIndex = 1;
-function updateCarousel() {
-    const cards = Array.from(document.querySelectorAll('.menu-card')).filter(c => c.style.display !== 'none');
-    if (activeIndex >= cards.length) activeIndex = Math.max(0, cards.length - 1);
-    
-    cards.forEach((card, index) => {
-        const offset = index - activeIndex;
-        
-        if (offset === 0) {
-            // Center / Active Card
-            card.style.transform = `translateX(0) scale(1)`;
-            card.style.filter = `blur(0px)`;
-            card.style.opacity = `1`;
-            card.style.zIndex = `10`;
-        } else {
-            // Inactive Cards (Left or Right)
-            const direction = offset > 0 ? 1 : -1;
-            const distance = 240 * direction + (offset * 20); 
-            
-            card.style.transform = `translateX(${distance}px) scale(0.85)`;
-            card.style.filter = `blur(6px)`;
-            card.style.opacity = `0.7`;
-            card.style.zIndex = `5`;
-        }
-    });
 }
 
 // Init
 document.addEventListener('DOMContentLoaded', () => {
-  transformCards();
+  buildCards();
   initReveals();
   initHeroGSAP();
 });
