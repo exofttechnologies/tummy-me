@@ -50,6 +50,10 @@ window.addEventListener('scroll', () => {
 
 // Scroll reveal
 function initReveals() {
+  document.querySelectorAll('.section-title, .section-subtitle, .about-feature, .contact-card, .menu-tab, .testimonial-card, .why-card, .benefit-card, .footer-col, .footer-brand').forEach(el => {
+      el.classList.add('reveal');
+  });
+
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
@@ -114,7 +118,7 @@ function buildCards() {
         '<img src="' + imgSrc + '" alt="' + imgAlt + '">' +
         '<span class="card-price-badge">' + price + '</span>' +
       '</div>' +
-      '<a class="card-arrow-link" onclick="showPage(\'menu\')">↗</a>';
+      '</div>';
   });
 }
 

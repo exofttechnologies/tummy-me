@@ -244,7 +244,7 @@ a{text-decoration:none;color:inherit}
 
 /* ═══ NEW HERO ═══ */
 .hero-new {
-    min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -255,7 +255,7 @@ a{text-decoration:none;color:inherit}
     position: relative;
     width: 100%;
     max-width: 100%;
-    height: calc(100vh - 48px);
+    height: calc(100dvh - 48px);
     background: #ffffff;
     border-radius: 42px;
     padding: 8px;
@@ -388,6 +388,11 @@ a{text-decoration:none;color:inherit}
     width: 520px;
     height: auto;
     filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.15));
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+}
+.hero-panda-center img:hover, .hero-panda-center img:active {
+    transform: scale(1.05) translateY(-15px) rotate(3deg);
 }
 
 @keyframes floatUpDown {
@@ -923,7 +928,7 @@ footer{padding:36px 0 14px}
 .footer-social{margin-top:12px}
 .about-features{grid-template-columns:1fr}
 .hero-new { padding: 4px; }
-.hero-new-card-outer { padding: 4px; border-radius: 20px; height: calc(100vh - 8px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+.hero-new-card-outer { padding: 4px; border-radius: 20px; height: calc(100dvh - 8px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
 .hero-new-card-inner { border-radius: 16px; }
     .hero-bg-text-1 {
         font-size: 24vw;
