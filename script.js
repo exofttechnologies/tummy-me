@@ -108,17 +108,22 @@ function buildCards() {
     idx++;
 
     // Rebuild card — dark card design
+    const imgHtml = imgSrc
+      ? '<div class="card-img-area">' +
+          '<img src="' + imgSrc + '" alt="' + imgAlt + '">' +
+          '<span class="card-price-badge">' + price + '</span>' +
+        '</div>'
+      : '<div class="card-img-area" style="aspect-ratio:auto;height:60px;display:flex;align-items:center;justify-content:flex-end;padding-right:20px;background:transparent">' +
+          '<span class="card-price-badge">' + price + '</span>' +
+        '</div>';
+
     card.innerHTML =
       '<div class="card-body">' +
         '<h3 class="card-title">' + title + '</h3>' +
         (desc ? '<p class="card-desc">' + desc + '</p>' : '') +
         '<div class="card-dots"><span></span><span></span><span></span></div>' +
       '</div>' +
-      '<div class="card-img-area">' +
-        '<img src="' + imgSrc + '" alt="' + imgAlt + '">' +
-        '<span class="card-price-badge">' + price + '</span>' +
-      '</div>' +
-      '</div>';
+      imgHtml;
   });
 }
 

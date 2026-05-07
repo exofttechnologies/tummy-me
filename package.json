@@ -1,0 +1,13 @@
+{
+  "name": "tummy-and-me",
+  "version": "1.0.0",
+  "description": "Tummy & Me website",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx browser-sync start --server --files \"*.html, *.css, *.js\"",
+    "start": "npx browser-sync start --server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

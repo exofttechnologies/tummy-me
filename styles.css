@@ -43,6 +43,9 @@ a{text-decoration:none;color:inherit}
     }
 }
 @media(min-width:969px) {
+    .navbar.scrolled .nav-logo {
+        display: none !important;
+    }
     .navbar.scrolled .nav-pill {
         background: rgba(255, 255, 255, 0.95) !important;
         backdrop-filter: blur(30px) !important;
@@ -248,17 +251,17 @@ a{text-decoration:none;color:inherit}
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    padding: 24px;
+    padding: 12px;
 }
 
 .hero-new-card-outer {
     position: relative;
     width: 100%;
     max-width: 100%;
-    height: calc(100dvh - 48px);
+    height: calc(100dvh - 24px);
     background: #ffffff;
     border-radius: 42px;
-    padding: 8px;
+    padding: 6px;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
 
@@ -422,7 +425,7 @@ a{text-decoration:none;color:inherit}
 .hero-card-bottom .title { color: #ffffff; font-size: 48px; font-weight: 700; font-family: 'Poppins', sans-serif; line-height: 1.1; }
 .hero-card-bottom .sub { color: rgba(255, 255, 255, 0.8); font-size: 18px; }
 
-.hero-bottom-notch { position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 80px; height: 40px; background: #ffffff; border-top-left-radius: 24px; border-top-right-radius: 24px; z-index: 20;}
+.hero-bottom-notch { display: none; }
 
 /* Mobile hero bottom overlay — eat.sleep.repeat + About Us */
 .hero-mobile-bottom {
@@ -516,15 +519,10 @@ section{padding:100px 0}
 /* ═══ MENU GRID — Normal Grid Layout ═══ */
 .menu-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 28px;
     max-width: 1200px;
     margin: 0 auto;
-}
-
-/* Home Fan Favorites — always 3 equal columns on desktop */
-.menu-section:not(#page-menu .menu-section) .menu-grid {
-    grid-template-columns: repeat(3, 1fr);
 }
 
 /* ═══ FOOD CARD (Dark Card Style) ═══ */
@@ -545,15 +543,31 @@ section{padding:100px 0}
 /* Image area */
 .card-img-area {
     position: relative;
-    height: 220px;
+    aspect-ratio: 4 / 3;
     overflow: hidden;
     margin: 14px;
     border-radius: 18px;
+    background: #111; /* Default background */
 }
+
+/* Drink-specific aspect ratio to show full glasses */
+.menu-card[data-cat="mojitos"] .card-img-area,
+.menu-card[data-cat="juices"] .card-img-area {
+    aspect-ratio: 1 / 1;
+}
+
 .card-img-area img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
+}
+
+/* Drink-specific object-fit */
+.menu-card[data-cat="mojitos"] .card-img-area img,
+.menu-card[data-cat="juices"] .card-img-area img {
+    object-fit: contain;
+    background: #ce1212; /* Matches the vibrant red background in the drink images */
 }
 
 /* Price badge */
@@ -873,8 +887,13 @@ footer{background:var(--black);color:#fff;padding:60px 0 24px}
   .navbar.scrolled .hamburger { background:rgba(255,255,255,.95); backdrop-filter:blur(14px); padding:12px; border-radius:50%; box-shadow:0 4px 20px rgba(0,0,0,.12); pointer-events:auto; }
   
   .about-grid,.franchise-grid,.contact-grid{grid-template-columns:1fr;gap:40px}
+    .hero-new { padding: 8px; }
+    .hero-new-card-outer { height: calc(100dvh - 16px); border-radius: 32px; padding: 5px; }
     .hero-new-card-inner {
-        border-radius: 24px;
+        border-radius: 28px;
+    }
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
     .hero-bg-text-1 {
         font-size: 100px;
@@ -935,9 +954,9 @@ footer{padding:36px 0 14px}
 .footer-col a{font-size:.82rem}
 .footer-social{margin-top:12px}
 .about-features{grid-template-columns:1fr}
-.hero-new { padding: 4px; }
-.hero-new-card-outer { padding: 4px; border-radius: 20px; height: calc(100dvh - 8px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-.hero-new-card-inner { border-radius: 16px; }
+.hero-new { padding: 0; }
+.hero-new-card-outer { padding: 0; border-radius: 0; height: 100dvh; box-shadow: none; }
+.hero-new-card-inner { border-radius: 0; }
     .hero-bg-text-1 {
         font-size: 24vw;
         left: 0;
@@ -985,13 +1004,6 @@ footer{padding:36px 0 14px}
     .menu-grid {
         grid-template-columns: 1fr;
         gap: 20px;
-    }
-    /* Override the home 3-col grid too */
-    .menu-section:not(#page-menu .menu-section) .menu-grid {
-        grid-template-columns: 1fr;
-    }
-    .card-img-area {
-        height: 160px;
     }
     .card-title {
         font-size: 0.88rem;
