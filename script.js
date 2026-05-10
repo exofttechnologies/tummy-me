@@ -8,6 +8,12 @@ function showPage(page) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
   updateMobileMenuActive(page);
   initReveals();
+  // Red glassmorphic header for non-home pages on mobile
+  if (page === 'home') {
+    document.body.classList.remove('page-red-header');
+  } else {
+    document.body.classList.add('page-red-header');
+  }
 }
 
 // Mobile Menu
@@ -66,19 +72,47 @@ function initReveals() {
 }
 
 // Menu filter
-function filterMenu(cat) {
+function filterMenu(cat, e) {
   document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
-  event.target.classList.add('active');
+  if (e && e.target) e.target.classList.add('active');
+  
+  // Show/hide cards
   document.querySelectorAll('#menuGrid .menu-card').forEach(card => {
     const show = cat === 'all' || card.dataset.cat === cat;
     card.style.display = show ? '' : 'none';
+    card.style.setProperty('display', show ? '' : 'none', 'important');
   });
+  
+  // Show/hide category headers
+  document.querySelectorAll('#menuGrid .menu-cat-header').forEach(header => {
+    const show = cat === 'all' || header.dataset.cat === cat;
+    header.style.setProperty('display', show ? '' : 'none', 'important');
+  });
+
+  // Scroll to the first visible category header or the menu grid
+  setTimeout(() => {
+    let scrollTarget;
+    if (cat !== 'all') {
+      scrollTarget = document.getElementById('cat-' + cat);
+    } else {
+      scrollTarget = document.getElementById('menuGrid');
+    }
+    if (scrollTarget) {
+      const offset = 100;
+      const y = scrollTarget.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  }, 100);
 }
 
 // Form handlers
 function handleFranchise(e) {
   e.preventDefault();
-  alert('Thank you for your franchise inquiry! We will contact you within 24 hours.');
+  const name = document.getElementById('franchiseName').value.trim();
+  const phone = document.getElementById('franchisePhone').value.trim();
+  const msg = document.getElementById('franchiseMsg').value.trim();
+  const text = `*Franchise Inquiry - Tummy & Me*%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Message:* ${encodeURIComponent(msg)}`;
+  window.open(`https://wa.me/917012090251?text=${text}`, '_blank');
   e.target.reset();
 }
 function handleContact(e) {
@@ -143,28 +177,40 @@ function initHeroGSAP() {
     gsap.registerPlugin(ScrollTrigger);
   }
   
-  // STEP 1 - Text enters from outside
-  gsap.fromTo(".hero-bg-text-1", 
-    { x: "-100vw", opacity: 0 },
-    { x: 0, opacity: 1, duration: 1.2, ease: "power4.out" }
-  );
-  gsap.fromTo(".hero-bg-text-2", 
-    { x: "100vw", opacity: 0 },
-    { x: 0, opacity: 1, duration: 1.2, ease: "power4.out" }
+  // Hero background image — scale up and fade in (desktop)
+  gsap.fromTo(".hero-bg-img", 
+    { scale: 1.15, opacity: 0 },
+    { scale: 1, opacity: 1, duration: 1.4, ease: "power3.out" }
   );
 
-  // STEP 2 - Panda appears from bottom outside
-  gsap.fromTo(".hero-panda-center", 
-    { scale: 0.75, opacity: 0, y: 400 },
-    { scale: 1, opacity: 1, y: 0, duration: 1.4, delay: 0.5, ease: "power4.out" }
+  // About Us button fade in (desktop)
+  gsap.fromTo(".hero-about-btn", 
+    { y: 30, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.8, delay: 0.8, ease: "power3.out" }
   );
 
-  // Removed panda parallax scroll and hover animations as requested
-  
-  // Glow fade in
-  gsap.fromTo(".panda-glow", 
-    { opacity: 0, scale: 0.5 },
-    { opacity: 1, scale: 1, duration: 1.6, delay: 1.1 }
+  // Mobile hero content text
+  gsap.fromTo(".hero-mobile-content h2", 
+    { y: -30, opacity: 0 },
+    { y: 0, opacity: 1, duration: 1, delay: 0.3, ease: "power3.out" }
+  );
+
+  // Mobile panda — slides up from bottom
+  gsap.fromTo(".hero-panda-mobile", 
+    { y: 200, opacity: 0, scale: 0.8 },
+    { y: 0, opacity: 1, scale: 1, duration: 1.2, delay: 0.5, ease: "power4.out" }
+  );
+
+  // Mobile fries — bounces in from the right
+  gsap.fromTo(".hero-fries-mobile", 
+    { x: 150, opacity: 0, scale: 0.6 },
+    { x: 0, opacity: 1, scale: 1, duration: 1.0, delay: 0.8, ease: "back.out(1.7)" }
+  );
+
+  // Mobile features bar
+  gsap.fromTo(".hero-mobile-features", 
+    { y: 40, opacity: 0 },
+    { y: 0, opacity: 1, duration: 0.8, delay: 1.2, ease: "power3.out" }
   );
 }
 

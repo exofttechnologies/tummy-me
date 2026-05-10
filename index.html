@@ -32,6 +32,7 @@
                 <ul class="nav-links">
                     <li><a href="#" onclick="showPage('home')" class="active" data-page="home">Home</a></li>
                     <li><a href="#" onclick="showPage('menu')" data-page="menu">Menu</a></li>
+                    <li><a href="#" onclick="showPage('about')" data-page="about">About</a></li>
                     <li><a href="#" onclick="showPage('contact')" data-page="contact">Contact</a></li>
                     <li><a href="#" onclick="showPage('locations')" data-page="locations">Location</a></li>
                     <li><a href="#" onclick="showPage('franchise')" data-page="franchise">Franchise</a></li>
@@ -62,6 +63,22 @@
             <li><a href="#" onclick="showPage('franchise');toggleMobile()">Franchise</a></li>
             <li><a href="#" onclick="showPage('contact');toggleMobile()">Contact</a></li>
         </ul>
+        <div class="mobile-menu-footer">
+            <div class="mobile-social-row">
+                <a href="https://wa.me/917012090251" target="_blank" title="WhatsApp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+                <a href="https://instagram.com/tummyandme" target="_blank" title="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/tummyandme/about" target="_blank" title="Facebook">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+                <a href="tel:+917012090251" title="Call Us">
+                    <i class="fa-solid fa-phone"></i>
+                </a>
+            </div>
+        </div>
     </nav>
 
     <!-- HOME -->
@@ -69,25 +86,25 @@
         <section class="hero-new">
             <div class="hero-new-card-outer">
                 <div class="hero-new-card-inner">
-                    <h2 class="hero-bg-text-1">TUMMY</h2>
-                    <h2 class="hero-bg-text-2">&amp; ME</h2>
-                    <div class="panda-glow"></div>
-                    <div class="panda-shadow"></div>
-                    <div class="hero-panda-center"><img src="images/panda hero.png" alt="Panda"></div>
-                    <div class="hero-card-bottom hero-card-left">
-                        <div class="title">eat</div>
-                        <div class="sub">sleep,repeat</div>
+                    <img class="hero-bg-img" src="images/tymmy hero section.png" alt="Tummy & Me Hero">
+                    <!-- Desktop overlay content -->
+                    <div class="hero-overlay-content">
+                        <a href="#" onclick="showPage('about')" class="hero-about-btn">About Us</a>
                     </div>
-                    <div class="hero-card-bottom hero-card-right">
-                        <div class="sub">Explore</div>
-                        <div class="title">US</div>
+                    <!-- Mobile hero content -->
+                    <div class="hero-mobile-content">
+                        <h2>Big Smiles<br>Start With<br>Tummy <span class="highlight-amp">&</span> Me</h2>
                     </div>
-                    <!-- Mobile only: tagline + About Us at bottom of panda -->
+                    <!-- Mobile panda & fries images -->
+                    <div class="hero-panda-mobile"><img src="images/panda hero.png" alt="Panda"></div>
+                    <div class="hero-fries-mobile"><img src="images/fries heros - Edited.png" alt="Fries"></div>
                     <div class="hero-mobile-bottom">
-                        <div class="hero-mobile-tagline">EAT <span>·</span> SLEEP <span>·</span> REPEAT</div>
-                        <a href="#" class="btn-hero-glass" onclick="showPage('about')">About Us &nbsp;→</a>
+                        <div class="hero-mobile-features">
+                            <div class="hero-feat"><span class="hero-feat-icon"><i data-lucide="truck"></i></span><span>Fast<br>Delivery</span></div>
+                            <div class="hero-feat"><span class="hero-feat-icon"><i data-lucide="percent"></i></span><span>Best<br>Offers</span></div>
+                            <div class="hero-feat"><span class="hero-feat-icon"><i data-lucide="smile"></i></span><span>Happy<br>You</span></div>
+                        </div>
                     </div>
-                    <div class="hero-bottom-notch"></div>
                 </div>
             </div>
         </section>
@@ -97,7 +114,7 @@
             <div class="container text-center">
                 <span class="section-badge"><i data-lucide="star"></i> Fan Favorites</span>
                 <h2 class="section-title reveal">Taste What Everyone's Talking About</h2>
-                <p class="section-subtitle reveal">Our most-loved crispy creations that keep Malappuram coming back for
+                <p class="section-subtitle reveal">Our most loved crispy creations that keep Malappuram coming back for
                     more.</p>
                 <div class="menu-grid">
                     <div class="menu-card reveal">
@@ -169,6 +186,34 @@
                             </div>
                         </div>
                     </div>
+                    <div class="menu-card reveal">
+                        <div class="menu-card-gradient"></div>
+                        <div class="menu-card-img-container">
+                            <img src="images/tummy crunchy box.png" alt="Tummy Crunchy Box">
+                        </div>
+                        <div class="menu-card-content">
+                            <h2 class="menu-card-brand">Tummy & Me</h2>
+                            <h3 class="menu-card-title">Tummy Crunchy Box</h3>
+                            <p class="menu-card-desc">Fried chicken chunks with crispy fries & our signature sauce.</p>
+                            <div class="menu-card-divider"></div>
+                            <div class="menu-card-tags">
+                                <span>Loaded</span>
+                                <span>Crunchy</span>
+                                <span>Meal</span>
+                            </div>
+                            <div class="menu-card-bottom">
+                                <div class="menu-card-stats">
+                                    <div class="stat-pill"><i data-lucide="flame"></i> <span>₹220</span></div>
+                                </div>
+                                <button class="menu-card-btn" onclick="showPage('menu')">Explore →</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="view-menu-btn-wrap" style="text-align:center;margin-top:48px;">
+                    <a href="#" onclick="showPage('menu')" class="btn-view-full-menu">
+                        <i data-lucide="book-open"></i> View Full Menu
+                    </a>
                 </div>
             </div>
         </section>
@@ -218,6 +263,15 @@
                 </div>
             </div>
         </section>
+
+        <!-- BANNER IMAGE -->
+        <section class="home-banner-section">
+            <div class="container">
+                <div class="home-banner-img reveal">
+                    <img src="images/banner image.png" alt="Tummy & Me - Eat Sleep Repeat">
+                </div>
+            </div>
+        </section>
     </div>
 
     <!-- MENU PAGE -->
@@ -231,19 +285,20 @@
         <section>
             <div class="container">
                 <div class="menu-tabs" id="menuTabs">
-                    <button class="menu-tab active" onclick="filterMenu('all')">All</button>
-                    <button class="menu-tab" onclick="filterMenu('signature')">Signature Wraps</button>
-                    <button class="menu-tab" onclick="filterMenu('kids')">Kids Menu</button>
-                    <button class="menu-tab" onclick="filterMenu('big')">Big Tummy</button>
-                    <button class="menu-tab" onclick="filterMenu('box')">Tummy Box</button>
-                    <button class="menu-tab" onclick="filterMenu('fries')">French Fries</button>
-                    <button class="menu-tab" onclick="filterMenu('mojitos')">Mojitos</button>
-                    <button class="menu-tab" onclick="filterMenu('juices')">Juices</button>
-                    <button class="menu-tab" onclick="filterMenu('extras')">Extras</button>
+                    <button class="menu-tab active" onclick="filterMenu('all', event)">All</button>
+                    <button class="menu-tab" onclick="filterMenu('signature', event)">Signature Wraps</button>
+                    <button class="menu-tab" onclick="filterMenu('kids', event)">Kids Menu</button>
+                    <button class="menu-tab" onclick="filterMenu('big', event)">Big Tummy</button>
+                    <button class="menu-tab" onclick="filterMenu('box', event)">Tummy Box</button>
+                    <button class="menu-tab" onclick="filterMenu('fries', event)">French Fries</button>
+                    <button class="menu-tab" onclick="filterMenu('mojitos', event)">Mojitos</button>
+                    <button class="menu-tab" onclick="filterMenu('juices', event)">Juices</button>
+                    <button class="menu-tab" onclick="filterMenu('extras', event)">Extras</button>
                 </div>
                 <div class="menu-grid" id="menuGrid">
 
                     <!-- ===== SIGNATURE TUMMY WRAPS ===== -->
+                    <div class="menu-cat-header" data-cat="signature" id="cat-signature"><h3>Signature Tummy Wraps</h3></div>
                     <div class="menu-card reveal" data-cat="signature">
                         <div class="menu-card-gradient"></div>
                         <div class="menu-card-img-container">
@@ -315,6 +370,7 @@
                     </div>
 
                     <!-- ===== KIDS MENU WRAPS ===== -->
+                    <div class="menu-cat-header" data-cat="kids" id="cat-kids"><h3>Kids Menu</h3></div>
                     <div class="menu-card reveal" data-cat="kids">
                         <div class="menu-card-gradient"></div>
                         <div class="menu-card-img-container">
@@ -363,6 +419,7 @@
                     </div>
 
                     <!-- ===== BIG TUMMY ===== -->
+                    <div class="menu-cat-header" data-cat="big" id="cat-big"><h3>Big Tummy</h3></div>
                     <div class="menu-card reveal" data-cat="big">
                         <div class="menu-card-gradient"></div>
                         <div class="menu-card-img-container">
@@ -388,10 +445,11 @@
                     </div>
 
                     <!-- ===== TUMMY BOX ===== -->
+                    <div class="menu-cat-header" data-cat="box" id="cat-box"><h3>Tummy Box</h3></div>
                     <div class="menu-card reveal" data-cat="box">
                         <div class="menu-card-gradient"></div>
                         <div class="menu-card-img-container">
-                            <img src="images/tummy cruncy box.jpeg" alt="Tummy Crunchy Box">
+                            <img src="images/tummy crunchy box.png" alt="Tummy Crunchy Box">
                         </div>
                         <div class="menu-card-content">
                             <h2 class="menu-card-brand">Tummy & Me</h2>
@@ -414,7 +472,7 @@
                     <div class="menu-card reveal" data-cat="box">
                         <div class="menu-card-gradient"></div>
                         <div class="menu-card-img-container">
-                            <img src="images/tummy cruncy box.jpeg" alt="Tummy Crunchy Box (Cheesy)">
+                            <img src="images/tummy crunchy box.png" alt="Tummy Crunchy Box (Cheesy)">
                         </div>
                         <div class="menu-card-content">
                             <h2 class="menu-card-brand">Tummy & Me</h2>
@@ -436,10 +494,11 @@
                     </div>
 
                     <!-- ===== FRENCH FRIES ===== -->
+                    <div class="menu-cat-header" data-cat="fries" id="cat-fries"><h3>French Fries</h3></div>
                     <div class="menu-card reveal" data-cat="fries">
                         <div class="menu-card-gradient"></div>
                         <div class="menu-card-img-container">
-                            <img src="images/tummy fries.jpeg" alt="French Fries (Medium)">
+                            <img src="images/french fries.png" alt="French Fries (Medium)">
                         </div>
                         <div class="menu-card-content">
                             <h2 class="menu-card-brand">Tummy & Me</h2>
@@ -462,7 +521,7 @@
                     <div class="menu-card reveal" data-cat="fries">
                         <div class="menu-card-gradient"></div>
                         <div class="menu-card-img-container">
-                            <img src="images/tummy fries.jpeg" alt="French Fries (Large)">
+                            <img src="images/french fries.png" alt="French Fries (Large)">
                         </div>
                         <div class="menu-card-content">
                             <h2 class="menu-card-brand">Tummy & Me</h2>
@@ -484,6 +543,7 @@
                     </div>
 
                     <!-- ===== MOJITOS ===== -->
+                    <div class="menu-cat-header" data-cat="mojitos" id="cat-mojitos"><h3>Mojitos</h3></div>
                     <div class="menu-card reveal" data-cat="mojitos">
                         <div class="menu-card-gradient"></div>
                         <div class="menu-card-img-container">
@@ -492,7 +552,7 @@
                         <div class="menu-card-content">
                             <h2 class="menu-card-brand">Tummy & Me</h2>
                             <h3 class="menu-card-title">Lemon Mint Mojito</h3>
-                            <p class="menu-card-desc">Fresh lemon with crushed mint — cool and refreshing.</p>
+                            <p class="menu-card-desc">Fresh lemon with crushed mint cool and refreshing.</p>
                             <div class="menu-card-divider"></div>
                             <div class="menu-card-tags">
                                 <span>Mojito</span>
@@ -574,6 +634,7 @@
                     </div>
 
                     <!-- ===== FRESH JUICES ===== -->
+                    <div class="menu-cat-header" data-cat="juices" id="cat-juices"><h3>Fresh Juices</h3></div>
                     <div class="menu-card reveal" data-cat="juices">
                         <div class="menu-card-gradient"></div>
                         <div class="menu-card-img-container">
@@ -686,6 +747,7 @@
                     </div>
 
                     <!-- ===== ADD-ONS & EXTRAS ===== -->
+                    <div class="menu-cat-header" data-cat="extras" id="cat-extras"><h3>Add-ons & Extras</h3></div>
                     <div class="menu-card reveal" data-cat="extras">
                         <div class="menu-card-gradient"></div>
                         <div class="menu-card-img-container">
@@ -733,7 +795,7 @@
                     <div class="menu-card reveal" data-cat="extras">
                         <div class="menu-card-gradient"></div>
                         <div class="menu-card-img-container">
-                            <img src="images/tummy fries.jpeg" alt="Loaded with Fries">
+                            <img src="images/french fries.png" alt="Loaded with Fries">
                         </div>
                         <div class="menu-card-content">
                             <h2 class="menu-card-brand">Tummy & Me</h2>
@@ -782,9 +844,9 @@
                                     Kerala</span></div>
                             <div class="loc-info"><span class="icon"><i data-lucide="clock"></i></span><span>11:00 AM - 11:30 PM (Daily)</span>
                             </div>
-                            <div class="loc-info"><span class="icon"><i data-lucide="phone"></i></span><span>+91 96333 30135</span></div>
+                            <div class="loc-info"><span class="icon"><i data-lucide="phone"></i></span><span>+91 70120 90251</span></div>
                             <div class="loc-btns"><a href="https://maps.app.goo.gl/uGh5RC2aagvUCbwf8?g_st=ic"
-                                    target="_blank" class="btn-sm btn-directions">Get Directions</a><a href="tel:+919633330135"
+                                    target="_blank" class="btn-sm btn-directions">Get Directions</a><a href="tel:+917012090251"
                                     class="btn-sm btn-call">Call</a></div>
                         </div>
                     </div>
@@ -832,11 +894,13 @@
         <section>
             <div class="container">
                 <div class="about-grid">
-                    <div class="about-image reveal"><img src="images/panda hero.png" alt="Tummy & Me Panda Mascot"></div>
+                    <div class="about-image reveal"><img src="images/about panda.png" alt="Tummy & Me Panda Mascot"></div>
                     <div class="about-content reveal">
                         <h2>Crafted with Love, Served with Pride</h2>
-                        <p>From our humble beginnings in Kondotty, Tummy & Me has grown into Malappuram’s favorite fried chicken wrapper destination. Every wrapper is made with the freshest ingredients, our secret spice blend, and a whole lot of love.</p>
-                        <p>We believe great food brings people together — and that’s exactly what we do, one crispy bite at a time.</p>
+                        <p>From our humble beginnings in Kondotty, Tummy & Me has grown into Malappuram's favorite fried chicken wrapper destination. Every wrapper is made with the freshest ingredients, our secret spice blend, and a whole lot of love.</p>
+                        <p>We believe great food brings people together — and that's exactly what we do, one crispy bite at a time.</p>
+                        <p>What started as a small kitchen with big dreams has now become the talk of the town. Our passion for perfection drives us to innovate every day — from our signature crunchy coatings to our handcrafted sauces. We don't just serve food, we serve happiness.</p>
+                        <p>Whether you're grabbing a quick bite on the go or sitting down with family, every experience at Tummy & Me is designed to make you smile. Because at the end of the day, good food is meant to be shared, and great memories are made around the table.</p>
                         <div class="about-features">
                             <div class="about-feature"><span class="icon"><i data-lucide="leaf"></i></span><span>Fresh Ingredients</span></div>
                             <div class="about-feature"><span class="icon"><i data-lucide="flame"></i></span><span>Secret Sauces</span></div>
@@ -844,6 +908,8 @@
                             <div class="about-feature"><span class="icon"><i data-lucide="zap"></i></span><span>Fast Service</span></div>
                             <div class="about-feature"><span class="icon"><i data-lucide="star"></i></span><span>Premium Taste</span></div>
                             <div class="about-feature"><span class="icon"><i data-lucide="heart"></i></span><span>Made with Love</span></div>
+                            <div class="about-feature"><span class="icon"><i data-lucide="award"></i></span><span>Top Quality</span></div>
+                            <div class="about-feature"><span class="icon"><i data-lucide="users"></i></span><span>Family Friendly</span></div>
                         </div>
                     </div>
                 </div>
@@ -853,7 +919,7 @@
         <!-- Mission & Vision -->
         <section style="background:rgba(229,166,35,.04)">
             <div class="container">
-                <div class="why-grid" style="grid-template-columns: repeat(2, 1fr)">
+                <div class="why-grid mission-vision-grid">
                     <div class="why-card reveal">
                         <div class="icon"><i data-lucide="target"></i></div>
                         <h3>Our Mission</h3>
@@ -868,31 +934,6 @@
             </div>
         </section>
 
-        <!-- Stats -->
-        <section>
-            <div class="container text-center">
-                <span class="section-badge"><i data-lucide="trending-up"></i> Our Journey</span>
-                <h2 class="section-title reveal">Growing Stronger Every Day</h2>
-                <div class="why-grid" style="grid-template-columns: repeat(4, 1fr); margin-top: 40px">
-                    <div class="why-card reveal" style="text-align:center">
-                        <h3 style="font-size:2.5rem;color:var(--red);margin-bottom:4px">1+</h3>
-                        <p style="font-weight:600;color:#333">Branches</p>
-                    </div>
-                    <div class="why-card reveal" style="text-align:center">
-                        <h3 style="font-size:2.5rem;color:var(--red);margin-bottom:4px">5000+</h3>
-                        <p style="font-weight:600;color:#333">Happy Customers</p>
-                    </div>
-                    <div class="why-card reveal" style="text-align:center">
-                        <h3 style="font-size:2.5rem;color:var(--red);margin-bottom:4px">15+</h3>
-                        <p style="font-weight:600;color:#333">Menu Items</p>
-                    </div>
-                    <div class="why-card reveal" style="text-align:center">
-                        <h3 style="font-size:2.5rem;color:var(--red);margin-bottom:4px">4.8★</h3>
-                        <p style="font-weight:600;color:#333">Google Rating</p>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- What Makes Us Different -->
         <section style="background:rgba(229,166,35,.04)">
@@ -925,17 +966,6 @@
             </div>
         </section>
 
-        <!-- CTA -->
-        <section>
-            <div class="container text-center">
-                <h2 class="section-title reveal">Ready to Taste the Crunch?</h2>
-                <p class="section-subtitle reveal">Visit us at Kondotty or explore our full menu online.</p>
-                <div style="display:flex;gap:16px;justify-content:center;margin-top:32px;flex-wrap:wrap">
-                    <button class="menu-card-btn" onclick="showPage('menu')" style="padding:16px 40px;font-size:1.1rem;border-radius:50px">Explore Menu →</button>
-                    <button class="menu-card-btn" onclick="showPage('locations')" style="padding:16px 40px;font-size:1.1rem;border-radius:50px;background:transparent;border:2px solid var(--red);color:var(--red)">Find Us →</button>
-                </div>
-            </div>
-        </section>
     </div>
 
     <!-- FRANCHISE PAGE -->
@@ -948,10 +978,26 @@
         </div>
         <section>
             <div class="container">
-                <div class="franchise-hero reveal">
-                    <h2>Be Part of Kerala's Fastest Growing Food Brand</h2>
-                    <p>With strong demand, easy operations, and complete brand support — owning a Tummy & Me franchise
-                        is a delicious opportunity.</p>
+                <!-- Franchise Image (Separate from card) -->
+                <div class="franchise-hero-img-standalone reveal" style="text-align:center;margin-bottom:40px;">
+                    <img src="images/franchise image.png" alt="Tummy & Me Franchise Store" style="max-width:400px;width:100%;border-radius:24px;box-shadow:0 20px 50px rgba(0,0,0,0.12);margin:0 auto;">
+                </div>
+                <!-- Franchise Info Card (No dark background) -->
+                <div class="franchise-hero-light reveal">
+                    <span class="section-badge" style="margin-bottom: 20px;">🚀 Franchise Opportunity</span>
+                    <h2 style="font-size: clamp(1.8rem, 3vw, 2.8rem); margin-bottom: 16px;">Be Part of Kerala's Fastest Growing Food Brand</h2>
+                    <p style="color:#555; font-size:1.1rem; max-width:700px; margin: 0 auto 28px;">With strong demand, easy operations, and complete brand support — owning a Tummy & Me franchise is a delicious opportunity.</p>
+                    <ul class="franchise-highlights-light">
+                        <li>
+                            <i data-lucide="check-circle-2" style="color: #4ade80; width: 22px; height: 22px;"></i> High ROI & Fast Break-even
+                        </li>
+                        <li>
+                            <i data-lucide="check-circle-2" style="color: #4ade80; width: 22px; height: 22px;"></i> Comprehensive Training Program
+                        </li>
+                        <li>
+                            <i data-lucide="check-circle-2" style="color: #4ade80; width: 22px; height: 22px;"></i> Ongoing Marketing Support
+                        </li>
+                    </ul>
                 </div>
                 <div class="franchise-grid">
                     <div class="benefit-cards">
@@ -993,23 +1039,14 @@
                     </div>
                     <div class="franchise-form reveal">
                         <h3>Franchise Inquiry</h3>
-                        <p>Fill in your details and we'll get back to you within 24 hours.</p>
-                        <form onsubmit="handleFranchise(event)">
-                            <div class="form-group"><label>Full Name</label><input type="text"
+                        <p>Fill in your details and send us a message directly on WhatsApp.</p>
+                        <form onsubmit="handleFranchise(event)" id="franchiseForm">
+                            <div class="form-group"><label>Full Name</label><input type="text" id="franchiseName"
                                     placeholder="Your full name" required></div>
-                            <div class="form-group"><label>Phone Number</label><input type="tel"
+                            <div class="form-group"><label>Phone Number</label><input type="tel" id="franchisePhone"
                                     placeholder="+91 XXXXX XXXXX" required></div>
-                            <div class="form-group"><label>City</label><input type="text" placeholder="Your city"
-                                    required></div>
-                            <div class="form-group"><label>Investment Range</label><select required>
-                                    <option value="">Select range</option>
-                                    <option>₹5 - ₹10 Lakhs</option>
-                                    <option>₹10 - ₹20 Lakhs</option>
-                                    <option>₹20 - ₹50 Lakhs</option>
-                                    <option>₹50 Lakhs+</option>
-                                </select></div>
-                            <button type="submit" class="btn-primary" style="width:100%;justify-content:center">Submit
-                                Inquiry →</button>
+                            <div class="form-group"><label>Message</label><textarea id="franchiseMsg" placeholder="Tell us about your interest, your city, budget, and any questions you have..." required rows="4"></textarea></div>
+                            <button type="submit" class="btn-primary btn-whatsapp-submit" style="width:100%;justify-content:center;background:#25D366;gap:10px;"><i class="fa-brands fa-whatsapp" style="font-size:1.2rem"></i> Send via WhatsApp →</button>
                         </form>
                     </div>
                 </div>
@@ -1032,13 +1069,13 @@
                         <div class="contact-card reveal">
                             <div class="icon"><i data-lucide="phone"></i></div>
                             <div>
-                                <h4>Phone</h4><a href="tel:+919633330135">+91 96333 30135</a>
+                                <h4>Phone</h4><a href="tel:+917012090251">+91 70120 90251</a>
                             </div>
                         </div>
                         <div class="contact-card reveal">
                             <div class="icon">💬</div>
                             <div>
-                                <h4>WhatsApp</h4><a href="https://wa.me/919633330135" target="_blank">Chat with us on
+                                <h4>WhatsApp</h4><a href="https://wa.me/917012090251" target="_blank">Chat with us on
                                     WhatsApp</a>
                             </div>
                         </div>
@@ -1117,10 +1154,13 @@
                     <a href="https://instagram.com/tummyandme" target="_blank" title="Instagram">
                         <i class="fa-brands fa-instagram"></i>
                     </a>
-                    <a href="https://wa.me/919633330135" target="_blank" title="WhatsApp">
+                    <a href="https://wa.me/917012090251" target="_blank" title="WhatsApp">
                         <i class="fa-brands fa-whatsapp"></i>
                     </a>
-                    <a href="tel:+919633330135" title="Call Us">
+                    <a href="https://www.facebook.com/tummyandme/about" target="_blank" title="Facebook">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+                    <a href="tel:+917012090251" title="Call Us">
                         <i class="fa-solid fa-phone"></i>
                     </a>
                 </div>
