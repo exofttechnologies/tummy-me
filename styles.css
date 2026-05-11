@@ -273,23 +273,41 @@ a{text-decoration:none;color:inherit}
     height: 100%;
     border-radius: 36px;
     overflow: hidden;
-    background: linear-gradient(170deg, #e82828 0%, #d41e1e 25%, #cc1b1b 50%, #b51515 80%, #9a0e0e 100%);
+    background: #cc1b1b; /* Solid vibrant red as per image */
 }
 
-/* Hero bottom shadow gradient — removed as per request */
+/* Hero vignette and shadow gradient */
 .hero-new-card-inner::after {
-    display: none !important;
-}
-
-/* Hero background image — the reference design */
-.hero-bg-img {
+    display: block !important;
+    content: '';
     position: absolute;
     inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    z-index: 1;
+    background: radial-gradient(circle, transparent 50%, rgba(0,0,0,0.45) 100%);
+    z-index: 5;
+    pointer-events: none;
+    border-radius: inherit; /* Matches the parent's corners exactly */
+}
+
+/* Background Brand Text */
+.hero-bg-tummy {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 900;
+    font-size: clamp(8rem, 20vw, 15rem);
+    color: rgba(255, 255, 255, 0.08);
+    letter-spacing: 10px;
+    z-index: 2;
+    pointer-events: none;
+    line-height: 1;
+    user-select: none;
+}
+
+/* Hero background image — hidden for this design */
+.hero-bg-img {
+    display: none;
 }
 
 /* Desktop overlay content — About Us button */
@@ -340,38 +358,47 @@ a{text-decoration:none;color:inherit}
 .hero-left-content { display: none; }
 .hero-bottom-notch { display: none; }
 
-/* Hero Content — show on desktop too */
-.hero-mobile-content {
-    display: block;
+/* New Bottom Typography */
+.hero-mobile-content-new {
     position: absolute;
-    top: 50%;
-    left: 60px;
-    right: 55%;
-    transform: translateY(-55%);
+    bottom: 30px;
+    left: 0;
+    right: 0;
+    text-align: center;
     z-index: 30;
+    pointer-events: none;
 }
-.hero-mobile-content h2 {
+.hero-mobile-content-new h2 {
     font-family: 'Fredoka One', cursive;
-    font-size: clamp(3rem, 4.5vw, 5rem);
+    font-size: clamp(2rem, 6vw, 3.5rem);
     font-weight: 400;
     color: #fff;
-    line-height: 1.06;
-    text-align: left;
-    text-shadow: 0 4px 30px rgba(0,0,0,0.15);
-    letter-spacing: -0.5px;
+    line-height: 1.1;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.25);
+    letter-spacing: 0.5px;
 }
-.hero-mobile-content .highlight-amp {
+.hero-mobile-content-new .highlight-amp {
     color: #FFD700;
-    font-size: 1.08em;
+    font-size: 1.1em;
 }
+.doodle-lines {
+    color: #fff;
+    opacity: 0.8;
+    font-size: 0.8em;
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* simple fallback for drawn lines */
+}
+.left-doodle { display: inline-block; transform: rotate(-15deg) translateY(-5px); }
+.right-doodle { display: inline-block; transform: rotate(15deg) translateY(-5px); }
+.left-doodle-small { display: inline-block; color: #FFD700; transform: rotate(-10deg) translateY(-3px); font-size: 0.9em; }
+.right-doodle-small { display: inline-block; color: #FFD700; transform: rotate(10deg) translateY(-3px); font-size: 0.9em; }
 
-/* Panda — show on desktop */
+/* Panda — desktop position */
 .hero-panda-mobile {
     display: block;
     position: absolute;
-    left: 25%;
-    bottom: 60px; /* Raised a bit more */
-    z-index: 20;
+    right: -5%; /* Back to the right for desktop */
+    bottom: -10px; /* Moved slightly lower */
+    z-index: 10;
     width: 45%;
 }
 .hero-panda-mobile::after {
@@ -398,29 +425,44 @@ a{text-decoration:none;color:inherit}
 .hero-fries-mobile {
     display: block;
     position: absolute;
-    right: 0;
-    bottom: 60px; /* Raised further */
-    z-index: 21;
-    width: 25%;
-}
-.hero-fries-mobile::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50%;
-    height: 15px;
-    background: rgba(0,0,0,0.2);
-    border-radius: 50%;
-    filter: blur(8px);
-    z-index: -1;
+    right: 5%;
+    bottom: 25px;
+    z-index: 25;
+    width: 15%; /* Small scale as requested */
+    max-width: 120px;
 }
 .hero-fries-mobile img {
     width: 100%;
     height: auto;
-    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.15));
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
     pointer-events: none;
+}
+
+/* Scroll Icon */
+.scroll-indicator {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 40;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    color: rgba(255,255,255,0.7);
+    font-size: 0.8rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    animation: bounce 2s infinite ease-in-out;
+    pointer-events: none;
+}
+.scroll-indicator i {
+    font-size: 1.2rem;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translate(-50%, 0); }
+    50% { transform: translate(-50%, 8px); }
 }
 
 /* Hero bottom overlay — features bar (visible on all) */
@@ -446,58 +488,49 @@ a{text-decoration:none;color:inherit}
     display: none;
 }
 
-/* Hero mobile features bar */
-.hero-mobile-features {
+/* Hero tagline and pill button */
+.hero-mobile-bottom {
+    position: absolute;
+    bottom: 60px;
+    left: 80px; /* Aligned left for desktop */
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0;
-    background: rgba(255, 255, 255, 0.22);
-    backdrop-filter: blur(40px) saturate(1.8);
-    -webkit-backdrop-filter: blur(40px) saturate(1.8);
-    border-radius: 22px;
-    padding: 18px 14px;
-    width: 100%;
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    box-shadow: none !important;
+    flex-direction: column;
+    align-items: flex-start; /* Left align content */
+    gap: 25px;
+    z-index: 20;
 }
-.hero-feat {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex: 1;
-    justify-content: center;
-    padding: 0 10px;
-    border-right: 1px solid rgba(255,255,255,0.2);
-}
-.hero-feat:last-child {
-    border-right: none;
-}
-.hero-feat-icon {
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    border: 1.5px solid rgba(255,255,255,0.3);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-}
-.hero-feat-icon i {
-    width: 18px;
-    height: 18px;
+.hero-centered-tagline {
+    font-family: 'Fredoka One', cursive;
+    font-size: 1.8rem;
     color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    letter-spacing: 1px;
 }
-.hero-feat span {
-    font-size: 0.82rem;
+.hero-centered-tagline span {
+    font-size: 1.2rem;
+    opacity: 0.6;
+}
+.hero-pill-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 18px 45px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50px;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
     font-weight: 700;
-    color: #fff;
-    line-height: 1.2;
-    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+.hero-pill-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
 }
 
 /* Smile curve SVG */
@@ -533,20 +566,29 @@ a{text-decoration:none;color:inherit}
     .hero-mobile-content {
         display: block;
         position: absolute;
-        top: 210px; /* Further increased to clear the large header */
-        left: 22px;
-        right: 22px;
+        top: 320px; /* Moved further down */
+        left: 20px;
+        right: 20px;
         transform: none;
         z-index: 30;
+        padding: 0;
+        background: none;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        border: none;
+        box-shadow: none;
     }
     .hero-mobile-content h2 {
         font-family: 'Fredoka One', cursive;
         font-size: clamp(2.2rem, 9vw, 3.2rem); /* Reduced size to prevent overlap */
         font-weight: 400;
-        color: #fff;
+        color: rgba(255, 255, 255, 0.8); /* Reduced intensity */
         line-height: 1.06;
         text-align: left;
-        text-shadow: 0 4px 24px rgba(0,0,0,0.15);
+        -webkit-text-stroke: 0.2px rgba(255, 255, 255, 0.2);
+        text-shadow: 
+            0 4px 12px rgba(0,0,0,0.2),
+            0 0 10px rgba(255,255,255,0.1);
         letter-spacing: -0.5px;
     }
     .hero-mobile-content .highlight-amp {
@@ -1243,23 +1285,36 @@ footer{padding:40px 0 0}
     .hero-mobile-content {
         top: 80px;
     }
-    .hero-mobile-content h2 {
-        font-size: clamp(2.2rem, 9vw, 3rem);
+    .hero-bg-tummy {
+        font-size: 6rem;
+        top: 35%;
+        left: 50%;
     }
     .hero-panda-mobile {
-        width: 90%;
-        left: -25px;
-        bottom: 85px; /* Raised a bit more on mobile */
+        width: 100%;
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        bottom: 120px; /* Moved lower */
+    }
+    .hero-mobile-content-new {
+        bottom: 15px;
+    }
+    .hero-mobile-content-new h2 {
+        font-size: clamp(1.8rem, 8vw, 2.5rem);
     }
     .hero-fries-mobile {
-        width: 58%;
-        right: -10px;
-        bottom: 75px; /* Raised a bit more on mobile */
+        width: 20%;
+        right: 15px;
+        bottom: 25px;
     }
-    .hero-mobile-bottom {
-        bottom: 10px;
-        width: calc(100% - 16px);
+    .nav-pill {
+        background: rgba(255, 255, 255, 0.25) !important;
+        backdrop-filter: blur(20px) saturate(1.5) !important;
+        -webkit-backdrop-filter: blur(20px) saturate(1.5) !important;
+        border: 1px solid rgba(255, 255, 255, 0.3) !important;
     }
+
     
     .navbar.scrolled .nav-pill {
         background: transparent;
