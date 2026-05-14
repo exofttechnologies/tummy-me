@@ -2,7 +2,7 @@
 :root{--cream:#F7F1E8;--gold:#CC1B1B;--orange:#CC1B1B;--red:#CC1B1B;--black:#111;--white:#fff;--card:#fff;--radius:16px;--shadow:0 8px 32px rgba(0,0,0,.08);--shadow-lg:0 16px 48px rgba(0,0,0,.12);--transition:all .3s cubic-bezier(.4,0,.2,1)}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:80px}
-body{font-family:'Inter',sans-serif;background-color:#f8f8f8;background-image:url('images/food-pattern.png');background-size:400px;background-repeat:repeat;background-attachment:fixed;color:var(--black);overflow-x:hidden;line-height:1.6;position:relative;}
+body{font-family:'Inter',sans-serif;background-color:#f8f8f8;color:var(--black);overflow-x:hidden;line-height:1.6;position:relative;}
 body::before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(248,248,248,0.95);z-index:-1;pointer-events:none}
 h1,h2,h3,h4,h5{font-family:'Poppins',sans-serif;font-weight:700;line-height:1.2}
 img{max-width:100%;display:block}
@@ -249,7 +249,8 @@ a{text-decoration:none;color:inherit}
 
 /* ═══ NEW HERO ═══ */
 .hero-new {
-    min-height: 100svh;
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
     display: flex;
     align-items: flex-start;
     justify-content: center;
@@ -260,7 +261,8 @@ a{text-decoration:none;color:inherit}
     position: relative;
     width: 100%;
     max-width: 100%;
-    height: calc(100svh - 24px);
+    height: calc(100vh - 24px);
+    height: calc(-webkit-fill-available - 24px);
     background: #ffffff;
     border-radius: 42px;
     padding: 6px;
@@ -1169,7 +1171,7 @@ footer{background:#1a1a1a;color:#fff;padding:70px 0 0}
 .reveal.visible{opacity:1;transform:translateY(0)}
 
 /* Loader */
-.loader{position:fixed;inset:0;background:var(--cream);z-index:9999;display:flex;align-items:center;justify-content:center;transition:opacity .5s,visibility .5s}
+.loader{position:fixed;inset:0;background:var(--cream);z-index:9999;display:flex;align-items:center;justify-content:center;transition:opacity .5s,visibility .5s;-webkit-overflow-scrolling:auto;overflow:hidden}
 .loader.hidden{opacity:0;visibility:hidden}
 .loader-inner{text-align:center}
 .loader-inner img{height:80px;margin:0 auto 16px;animation:loaderPulse 1.5s ease-in-out infinite}
@@ -1201,7 +1203,7 @@ footer{background:#1a1a1a;color:#fff;padding:70px 0 0}
   .about-image { text-align: center; }
   .about-image img { max-width: 320px; margin: 0 auto; }
     .hero-new { padding: 8px; }
-    .hero-new-card-outer { height: calc(100svh - 16px); border-radius: 32px; padding: 5px; }
+    .hero-new-card-outer { height: calc(100vh - 16px); height: calc(-webkit-fill-available - 16px); border-radius: 32px; padding: 5px; }
     .hero-new-card-inner {
         border-radius: 28px;
     }
@@ -1282,7 +1284,7 @@ footer{padding:40px 0 0}
 .about-content h2 { font-size: 1.4rem; }
 .about-content > p { font-size: 0.92rem; margin-bottom: 20px; }
 .hero-new { padding: 0; }
-.hero-new-card-outer { padding: 0; border-radius: 0; height: 100svh; box-shadow: none; }
+.hero-new-card-outer { padding: 0; border-radius: 0; height: 100vh; height: -webkit-fill-available; box-shadow: none; }
 .hero-new-card-inner { border-radius: 0; }
     .hero-mobile-content {
         top: 80px;
