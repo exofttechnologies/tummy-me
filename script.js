@@ -218,6 +218,7 @@ function initHeroGSAP() {
 window.addEventListener('load', () => {
   setTimeout(() => {
     document.getElementById('loader').classList.add('hidden');
+    document.body.style.overflow = '';
     initReveals();
-  }, 1200);
+  }, 200);
 });
