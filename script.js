@@ -117,7 +117,12 @@ function handleFranchise(e) {
 }
 function handleContact(e) {
   e.preventDefault();
-  alert('Thank you for your message! We will get back to you soon.');
+  const name = document.getElementById('contactName').value.trim();
+  const email = document.getElementById('contactEmail').value.trim();
+  const phone = document.getElementById('contactPhone').value.trim();
+  const msg = document.getElementById('contactMsg').value.trim();
+  const text = `*Contact Us - Tummy & Me*%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Email:* ${encodeURIComponent(email)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Message:* ${encodeURIComponent(msg)}`;
+  window.open(`https://wa.me/917012090251?text=${text}`, '_blank');
   e.target.reset();
 }
 
